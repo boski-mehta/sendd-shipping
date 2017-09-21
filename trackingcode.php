@@ -11,7 +11,7 @@ $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token 
 
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try{
-	$arguments	= array( "fulfillment" => array("tracking_number" => $trackingcode,"tracking_company"=> $trackingcompany));
+	$arguments	= array( "fulfillment" => array("tracking_number" => $trackingcode,"tracking_company"=> "Custom Tracking Company","tracking_url"=>"http://sendd.co/#/tracking"));
 				
  $orders = $shopify('POST /admin/orders/'.$order_id.'/fulfillments.json',$arguments);
  

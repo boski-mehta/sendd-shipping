@@ -13,7 +13,6 @@ $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token 
 try{
 $arguments	= array("order" => array("note_attributes" => array("name"=>"tracking number,tracking Company","value"=> $trackingcode.','.$trackingcompany)));			
  $orders = $shopify('PUT /admin/orders/'.$order_id.'.json',$arguments);
- 
 	print_r($orders);
 }
 catch (shopify\ApiException $e)
