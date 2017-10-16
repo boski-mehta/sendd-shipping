@@ -171,7 +171,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 	var i=0;
 	$('.popupcontent_inner .item').each(function(index){
 		if(index < leng-1){
-			
+			alert(index +"hello");
 		  /* pickup address detail*/
 		   var pickup_address = $('.pickup_address option:selected',this).text();
 		   var address2 = $('.pickup_address option:selected',this).attr('data-address2');
