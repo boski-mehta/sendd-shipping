@@ -241,7 +241,8 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			request.setRequestHeader('Access-Control-Allow-Origin', '*'); 		
 			/* live api */
 			/* test api */
-			 request.open('POST', 'https://api-staging.sendd.co/core/api/v2/order/international/');
+			 request.open('POST', 'https://api-staging.sendd.co/core/api/v2/order/international/',true);
+			 request.withCredentials = true;
 			request.setRequestHeader('Content-Type', 'application/json');
 			request.setRequestHeader("Access-Control-Allow-Origin", "*");
 			request.setRequestHeader('Authorization', 'Token 39757c4c7867f048ed452812df9f4d7395842de8'); 
