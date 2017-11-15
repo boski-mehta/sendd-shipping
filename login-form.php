@@ -17,9 +17,10 @@ require __DIR__.'/connection.php'; //DB connectivity
 		<div class="msg">&nbsp;</div>
 	<input type="submit" name="login" id="login" value="Login"/> 
 	</form>
-</div>
-<div class="pickupaddress">
+
+<div class="pickupaddress1">
 <?php include 'Pickup_address.php';?>	
+</div>
 </div>
 <script>
 $('#login').click(function(e){
