@@ -18,7 +18,7 @@ require __DIR__.'/connection.php'; //DB connectivity
 	<input type="submit" name="login" id="login" value="Login"/> 
 	</form>
 
-<div class="pickupaddress1">
+<div class="pickupaddress">
 <?php include 'Pickup_address.php';?>	
 </div>
 </div>
