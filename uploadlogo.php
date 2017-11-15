@@ -5,6 +5,7 @@ $path = "images/";
 $valid_file_formats = array("jpg", "png", "gif", "bmp","jpeg");
 if(is_array($_FILES)) {
 	print_r($_FILES);
+	$shop_url=$_REQUEST['shop_url'];
 $name = $_FILES['fileToUpload']['name'];
 $size = $_FILES['fileToUpload']['size'];
 if(strlen($name)) {
@@ -28,7 +29,7 @@ if(move_uploaded_file($tmp, $path.$image_name)){
 			if($qry){
 				echo "Logo uploaded sucessfully";
 			}
-    echo "<img src='uploads/".$image_name."' class='preview'>";
+    echo "<img src='images/".$image_name."' class='preview'>";
 }
 else
 echo "Image Upload failed";
