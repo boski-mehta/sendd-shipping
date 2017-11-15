@@ -12,7 +12,7 @@ if(in_array($ext,$valid_file_formats)) {
 if($size<(1024*1024)) {
 $image_name = time().$name.".".$ext;
 $tmp = $_FILES['fileToUpload']['tmp_name'];
-/*if(move_uploaded_file($tmp, $path.$image_name)){
+if(move_uploaded_file($tmp, $path.$image_name)){
 	 $user_exist = pg_query($dbconn4, "SELECT * FROM user_table WHERE store_url = '{$shop_url}'");
 		if(pg_num_rows($user_exist)){
 			$user_exist = pg_query($dbconn4, "UPDATE user_table SET  logo=''$image_name''  WHERE store_url = '{$shop_url}'");
@@ -27,11 +27,12 @@ $tmp = $_FILES['fileToUpload']['tmp_name'];
 			if($qry){
 				echo "Logo uploaded sucessfully";
 			}
+		}
     echo "<img src='images/".$image_name."' class='preview'>";
 }
 else
 echo "Image Upload failed";
-} */
+} 
 else
 echo "Image file size maximum 1 MB";
 }
@@ -42,5 +43,5 @@ else
 echo "Please select image";
 exit;
 }
-}
+
 ?>
