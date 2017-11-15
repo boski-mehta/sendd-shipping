@@ -44,4 +44,5 @@ else
 echo "Please select image";
 exit;
 }
+}
 ?>
