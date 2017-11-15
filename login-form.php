@@ -17,10 +17,23 @@ require __DIR__.'/connection.php'; //DB connectivity
 		<div class="msg">&nbsp;</div>
 	<input type="submit" name="login" id="login" value="Login"/> 
 	</form>
-
-<div class="pickupaddress">
-<?php include 'Pickup_address.php';?>	
-</div>
+	<!-- Upload logo for shipping label -->
+	 <div class="logo_option">
+	 <h3>Upload Logo for Shipping Label</h3>
+		 <form name="upload_logo" action="#" method="post" enctype="multipart/form-data" id="logo_upload_form">
+		 <label for="fileToUpload">Upload Logo</label>
+		 <input type="file" name="fileToUpload" id="fileToUpload">
+		 <input type="hidden" name="shop_url" id="shop_url"  value="<?php echo $_SESSION['shop'];?>">
+		   <input type="submit" value="Upload Image" class="upload_logo" name="submit">
+		   <div class="msg-upload">&nbsp;</div>
+		 </form>
+	 </div>
+	 <!-- Upload logo for shipping label -->
+ <!-- Pickup address -->
+	<div class="pickupaddress">
+	<?php include 'Pickup_address.php';?>	
+	</div>
+<!-- Pickup address -->
 </div>
 <script>
 $('#login').click(function(e){
@@ -78,5 +91,32 @@ $('#login').click(function(e){
 			console.log(request.send(JSON.stringify(body)));
 		}
 });
+/* ****** Upload logo ****** */
+$('.upload_logo').click(function(e){
+	e.preventDefault();
+	if($('.upload_logo').val() == ''){
+		$('.msg-upload').html('Please select the image');
+	}
+	else{
+		$("#logo_upload_form").on('submit',(function(e){
+			e.preventDefault();
+			$.ajax({
+				url: "uploadlogo.php",
+				type: "POST",
+				data:  new FormData(this),
+				contentType: false,
+				cache: false,
+				processData:false,
+				success: function(data){
+				$(".msg-upload").html(data);
+				},
+				error: function(){
+					alert("Error");
+				} 	        
+			});
+		});
+
+	}
+})
 </script>
 
