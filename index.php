@@ -6,9 +6,9 @@ require __DIR__.'/connection.php'; //DB connectivity
 require __DIR__.'/vendor/autoload.php';
 use phpish\shopify;
 // Required File END...........
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
  //print_r($_SESSION); 
-ini_set('display_errors', 1);
+//ini_set('display_errors', 1);
 header('Access-Control-Allow-Origin: *'); 
     header("Access-Control-Allow-Credentials: true");
     header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
