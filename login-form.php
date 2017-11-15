@@ -18,8 +18,10 @@ require __DIR__.'/connection.php'; //DB connectivity
 	<input type="submit" name="login" id="login" value="Login"/> 
 	</form>
 </div>
+<div class="pickupaddress">
+<?php include 'Pickup_address.php';?>	
+</div>
 <script>
-
 $('#login').click(function(e){
 	e.preventDefault();
 	//get the values
