@@ -94,10 +94,7 @@ $('#login').click(function(e){
 /* ****** Upload logo ****** */
 $("#logo_upload_form").on('submit',(function(e){
 	e.preventDefault();
-	if($('.upload_logo').val() == ''){
-		$('.msg-upload').html('Please select the image');
-	}
-	else {
+	
 		$.ajax({
 				url: "uploadlogo.php",
 				type: "POST",
@@ -112,9 +109,6 @@ $("#logo_upload_form").on('submit',(function(e){
 					alert("Error");
 				} 	        
 			});
-		
-
-	}
 });
 </script>
 
