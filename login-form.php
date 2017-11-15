@@ -98,10 +98,11 @@ $("#logo_upload_form").on('submit',(function(e){
 		$('.msg-upload').html('Please select the image');
 	}
 	else {
+		var shop_url = "<?php echo $_SESSION['shop'];?>";
 		$.ajax({
 				url: "uploadlogo.php",
 				type: "POST",
-				data:  new FormData(this),
+				data:  new FormData(this)+'&shop_url='+shop_url,
 				contentType: false,
 				cache: false,
 				processData:false,
