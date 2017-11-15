@@ -4,15 +4,13 @@ require __DIR__.'/connection.php'; //DB connectivity
 $path = "images/";
 $valid_file_formats = array("jpg", "png", "gif", "bmp","jpeg");
 if(is_array($_FILES)) {
-	print_r($_FILES);
-	$shop_url=$_REQUEST['shop_url'];
 $name = $_FILES['fileToUpload']['name'];
 $size = $_FILES['fileToUpload']['size'];
 if(strlen($name)) {
 list($txt, $ext) = explode(".", $name);
 if(in_array($ext,$valid_file_formats)) {
 if($size<(1024*1024)) {
-$image_name = time().$session_id.".".$ext;
+$image_name = time().$name.".".$ext;
 $tmp = $_FILES['fileToUpload']['tmp_name'];
 /*if(move_uploaded_file($tmp, $path.$image_name)){
 	 $user_exist = pg_query($dbconn4, "SELECT * FROM user_table WHERE store_url = '{$shop_url}'");
