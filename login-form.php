@@ -97,10 +97,8 @@ $("#logo_upload_form").on('submit',(function(e){
 	if($('.upload_logo').val() == ''){
 		$('.msg-upload').html('Please select the image');
 	}
-	else{
-		
-			e.preventDefault();
-			$.ajax({
+	else {
+		$.ajax({
 				url: "uploadlogo.php",
 				type: "POST",
 				data:  new FormData(this),
