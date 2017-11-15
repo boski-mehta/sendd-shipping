@@ -100,9 +100,9 @@ $("#logo_upload_form").on('submit',(function(e){
 	else {
 		var shop_url = "<?php echo $_SESSION['shop'];?>";
 		$.ajax({
-				url: "uploadlogo.php",
+				url: "uploadlogo.php&shop_url="+shop_url,
 				type: "POST",
-				data:  new FormData(this)+'&shop_url='+shop_url,
+				data:  new FormData(this),
 				contentType: false,
 				cache: false,
 				processData:false,
