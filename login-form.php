@@ -92,13 +92,13 @@ $('#login').click(function(e){
 		}
 });
 /* ****** Upload logo ****** */
-$('.upload_logo').click(function(e){
+$("#logo_upload_form").on('submit',(function(e){
 	e.preventDefault();
 	if($('.upload_logo').val() == ''){
 		$('.msg-upload').html('Please select the image');
 	}
 	else{
-		$("#logo_upload_form").on('submit',(function(e){
+		
 			e.preventDefault();
 			$.ajax({
 				url: "uploadlogo.php",
@@ -114,9 +114,9 @@ $('.upload_logo').click(function(e){
 					alert("Error");
 				} 	        
 			});
-		});
+		
 
 	}
-})
+});
 </script>
 
