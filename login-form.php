@@ -33,9 +33,8 @@ $('#login').click(function(e){
 		}else{
 				$('.msg').html("<img src='loading.gif' border='0' />");	
 			var request = new XMLHttpRequest();
-
-			//request.open('POST', 'https://api-staging.sendd.co/rest-auth/login/');
-			request.open('POST', 'https://api.sendd.co/rest-auth/login/');				
+			request.open('POST', 'https://api-staging.sendd.co/rest-auth/login/'); //test Login api
+			//request.open('POST', 'https://api.sendd.co/rest-auth/login/');	//Live Login api			
 			request.setRequestHeader('Content-Type', 'application/json');
 
 			request.onreadystatechange = function () {
