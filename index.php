@@ -42,9 +42,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 <?php include 'dashboard.php';?>
 </div>
 <div class="content">
-<div class="pickupaddress" style="display:none">
-<?php include 'Pickup_address.php';?>	
-</div>
+
 <input type="hidden" class="access_token_val" value="">
 <?php include 'login-form.php';?>
 <div class="error_msg" style="display:none"><p>Please login to Your Sendd Shipping account First</p></div>
