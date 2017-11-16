@@ -6,7 +6,7 @@ require __DIR__.'/connection.php'; //DB connectivity
 		while ($row = pg_fetch_assoc($login_detail)) {
 		      $email=trim($row['email']);
 			  $password=trim($row['password']);
-			  $profile_photo=trim($row['profile_photo']);
+			  $profile_photo=trim($row['logo']);
 		}
 	}
 	?>
@@ -121,3 +121,4 @@ $("#logo_upload_form").on('submit',(function(e){
 	}
 }));
 </script>
+
