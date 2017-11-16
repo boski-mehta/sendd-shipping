@@ -97,10 +97,7 @@ $('#login').click(function(e){
 /* ****** Upload logo ****** */
 $("#logo_upload_form").on('submit',(function(e){
 	e.preventDefault();
-	if($('.upload_logo').val() == '') {
-		$('.msg-upload').html('Please select the image');
-	}
-	else {
+	$('.upload_logo').val('Uploading...');
 		var shop_url = "<?php echo $_SESSION['shop'];?>";
 		$.ajax({
 				url: "uploadlogo.php?shop_url="+shop_url,
@@ -110,15 +107,17 @@ $("#logo_upload_form").on('submit',(function(e){
 				cache: false,
 				processData:false,
 				success: function(data){
+				$('.upload_logo').val('Uploaded!');
 				$(".msg-upload").html(data);
 				},
 				error: function(){
+				$('.upload_logo').val('Upload Logo');
 					alert("Error");
 				} 	        
 			});
 		
 
-	}
+	
 }));
 </script>
 
