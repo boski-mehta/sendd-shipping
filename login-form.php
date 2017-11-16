@@ -100,7 +100,7 @@ $('#login').click(function(e){
 /* ****** Upload logo ****** */
 $("#logo_upload_form").on('submit',(function(e){
 	e.preventDefault();
-	$('.upload_logo').val('Uploading...');
+	$('.upload_logo').val('Uploading...').attr('disabled',true);
 		var shop_url = "<?php echo $_SESSION['shop'];?>";
 		$.ajax({
 				url: "uploadlogo.php?shop_url="+shop_url,
@@ -110,12 +110,12 @@ $("#logo_upload_form").on('submit',(function(e){
 				cache: false,
 				processData:false,
 				success: function(data){
-				$('.upload_logo').val('Uploaded!');
+				$('.upload_logo').val('Uploaded!').attr('disabled',false);
 				$(".msg-upload").html(data);
 				$(".db_preview").hide();
 				},
 				error: function(){
-				$('.upload_logo').val('Upload Logo');
+				$('.upload_logo').val('Upload Logo').attr('disabled',true);
 					alert("Error");
 				} 	        
 			});
