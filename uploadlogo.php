@@ -10,7 +10,6 @@ $shop_url = $_REQUEST['shop_url'];
 $new_image_name = preg_replace('#^https?://#', '', $shop_url);
 $new_image_name = explode('.', $new_image_name);
 echo $new_image_name = $new_image_name[0];
-die('bobo');
 if(strlen($name)) {
 list($txt, $ext) = explode(".", $name);
 if(in_array($ext,$valid_file_formats)) {
