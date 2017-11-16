@@ -27,8 +27,11 @@ require __DIR__.'/connection.php'; //DB connectivity
 		 <input type="hidden" name="shop_url" id="shop_url"  value="<?php echo $_SESSION['shop'];?>">
 		   <input type="submit" value="Upload Image" class="upload_logo" name="submit">
 		   <div class="msg-upload">&nbsp;</div>
+		   <?php if ($profile_photo != ''){ ?>
+		    <img src="/images/<?php echo $profile_photo; ?>" class='preview db_preview'>
+		   <?php }?>
 		 </form>
-		 <img src="/images/<?php echo $profile_photo; ?>" class='preview'>
+		
 	 </div>
 	 <!-- Upload logo for shipping label -->
  <!-- Pickup address -->
@@ -109,6 +112,7 @@ $("#logo_upload_form").on('submit',(function(e){
 				success: function(data){
 				$('.upload_logo').val('Uploaded!');
 				$(".msg-upload").html(data);
+				$(".db_preview").hide();
 				},
 				error: function(){
 				$('.upload_logo').val('Upload Logo');
