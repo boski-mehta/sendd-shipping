@@ -399,3 +399,6 @@ input[type=checkbox] {
 img.preview {
     width: 150px;
 }
+.popup_close.skip_last {
+    text-align: left;
+}
