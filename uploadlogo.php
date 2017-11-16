@@ -6,12 +6,19 @@ $valid_file_formats = array("jpg", "png", "gif", "bmp","jpeg");
 if(is_array($_FILES)) {
 $name = $_FILES['fileToUpload']['name'];
 $size = $_FILES['fileToUpload']['size'];
+$shop_url =$_REQUEST['shop_url'];
+$new_image_name = preg_replace('#^https?://#', '', $shop_url);
+$new_image_name = explode('.', $new_image_name);
+$new_image_name = $new_image_name[0];
 if(strlen($name)) {
 list($txt, $ext) = explode(".", $name);
 if(in_array($ext,$valid_file_formats)) {
 if($size<(1024*1024)) {
-$image_name = time().$name.".".$ext;
+echo $image_name = $new_image_name".".$ext;
 $tmp = $_FILES['fileToUpload']['tmp_name'];
+if(file_exists("images/$image_name")) {
+	unlink("images/$image_name");
+}	
 if(move_uploaded_file($tmp, $path.$image_name)){
 	 $user_exist = pg_query($dbconn4, "SELECT * FROM user_table WHERE store_url = '{$shop_url}'");
 		if(pg_num_rows($user_exist)){
