@@ -152,6 +152,10 @@ $('.page_list li a').click(function(){
 			order_count();
 		}
 	}
+	function skip_last(){
+		var slideno =$('.slick-slide').length;
+		$('.popupcontent_inner').slick('slickGoTo', slideno);
+	}
 // Initial Page Load
 (function($) {
 	var access_token='<?php echo $access_token ?>';
@@ -467,7 +471,6 @@ $('.page_list li a').click(function(){
 		}
 	});
     
-
 })(jQuery);
 </script>
 </body>
