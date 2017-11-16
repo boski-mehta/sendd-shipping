@@ -28,7 +28,7 @@ require __DIR__.'/connection.php'; //DB connectivity
 		   <input type="submit" value="Upload Image" class="upload_logo" name="submit">
 		   <div class="msg-upload">&nbsp;</div>
 		 </form>
-		 <img src="uploads/<?php echo $profile_photo; ?>" class='preview'>
+		 <img src="/images/<?php echo $profile_photo; ?>" class='preview'>
 	 </div>
 	 <!-- Upload logo for shipping label -->
  <!-- Pickup address -->
