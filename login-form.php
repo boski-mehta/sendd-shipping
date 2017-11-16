@@ -33,6 +33,7 @@ require __DIR__.'/connection.php'; //DB connectivity
 	 <!-- Upload logo for shipping label -->
  <!-- Pickup address -->
 	<div class="pickupaddress">
+	<h3>Pickup Address</h3>
 	<?php include 'Pickup_address.php';?>	
 	</div>
 <!-- Pickup address -->
@@ -120,4 +121,3 @@ $("#logo_upload_form").on('submit',(function(e){
 	}
 }));
 </script>
-
