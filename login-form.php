@@ -6,6 +6,7 @@ require __DIR__.'/connection.php'; //DB connectivity
 		while ($row = pg_fetch_assoc($login_detail)) {
 		      $email=trim($row['email']);
 			  $password=trim($row['password']);
+			  $profile_photo=trim($row['profile_photo']);
 		}
 	}
 	?>
@@ -27,6 +28,7 @@ require __DIR__.'/connection.php'; //DB connectivity
 		   <input type="submit" value="Upload Image" class="upload_logo" name="submit">
 		   <div class="msg-upload">&nbsp;</div>
 		 </form>
+		 <img src="uploads/<?php echo $profile_photo; ?>" class='preview'>
 	 </div>
 	 <!-- Upload logo for shipping label -->
  <!-- Pickup address -->
