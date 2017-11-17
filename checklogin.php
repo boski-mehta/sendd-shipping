@@ -28,7 +28,8 @@ require __DIR__.'/connection.php'; //DB connectivity
 			if(pg_num_rows($user_exist)){
 
 				while ($row = pg_fetch_assoc($user_exist)) {
-						 echo $row['access_key'];
+						 echo "<p class='access_key'>".$row['access_key']."</p>";
+						 echo "<p class='ship_logo'>".$row['logo']."</p>";
 					}
 			}
 	  	}
