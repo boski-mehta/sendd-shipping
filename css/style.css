@@ -402,3 +402,17 @@ img.preview {
 .popup_close.skip_last {
     text-align: left;
 }
+.product_list h3 {
+    font-size: 15px;
+}
+.product_list {
+    clear: both;
+    width: 91%;
+    padding: 20px 0 0;
+    color: #000;
+}
+.product_list input[type="checkbox"] {
+    width: 14px;
+    margin: 0 10px 0 0;
+    height: auto;
+}
