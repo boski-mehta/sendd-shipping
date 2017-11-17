@@ -315,6 +315,7 @@ $('.page_list li a').click(function(){
 				products_name =products_name+','+$(this).val();
 				}
 			});
+			alert(products_name);
 		   // set the description limit to 100
 		     if (products_name.length > 100){
 					products_name=products_name.substring(0,100);
