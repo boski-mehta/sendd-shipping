@@ -471,7 +471,7 @@ $('.page_list li a').click(function(){
 			  'insurance': false,
 			  'process': true,
 			  'notifications':true,
-			  'shipping_label_specification'{
+			  'shipping_label_specification':{
 			  'logo':ship_logo_path
 			  }
 			 };
