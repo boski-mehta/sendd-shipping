@@ -206,7 +206,7 @@ $('.page_list li a').click(function(){
 						else{
 							checked=false;
 						}
-					   single_product_title =single_product_title +'<input type="checkbox" name="p_list" value="'+single_product_title_1[i]+'" checked="'+checked+'">'+single_product_title1[i];
+					   single_product_title =single_product_title +'<input type="checkbox" name="p_list" value="'+single_product_title_1[i]+'" checked="'+checked+'">'+single_product_title_1[i];
 					});
 					}
 					else{
