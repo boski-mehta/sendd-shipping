@@ -63,10 +63,8 @@ $('.page_list li a').click(function(){
 	  var shop_url = "<?php echo $_SESSION['shop'];?>";
 				$.post('/checklogin.php', {shop_url:shop_url,getaccesstoken:1}, function(resp){
 					console.log("resp="+resp);
-					//var resp1= resp.find('.session_email').html();
-					resp=$.trim(resp);
 					if(resp!=''){
-						var access_token_val = $(resp).find('.access_key').html();
+						var access_token_val = resp.find('.access_key').html();
 						var ship_logo = $(resp).find('.ship_logo').html();
 						 $('.access_token_val').val(access_token_val);
 						 if(ship_logo !=''){
