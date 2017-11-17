@@ -1,7 +1,7 @@
 <?php 
 session_start();
 require __DIR__.'/connection.php'; //DB connectivity
-	echo $shop_url = $_POST['shop_url'];
+	 $shop_url = $_POST['shop_url'];
 	if(isset($_REQUEST['access_key']) || $_REQUEST['access_key']!=''){
 			 $access_key= trim($_POST['access_key']);
 			 $email= trim($_POST['email']);
@@ -57,13 +57,13 @@ require __DIR__.'/connection.php'; //DB connectivity
 				
 			}
 			else{
-			echo $sql = "insert into pickup_address (name,address_line1,address_line2,city ,zipcode,phoneno,shop_url,companyname) values ('$name','$address_line1','$address_line2','$city', '$zipcode','$phoneno','$shop_url','$companyname' )";
+			 $sql = "insert into pickup_address (name,address_line1,address_line2,city ,zipcode,phoneno,shop_url,companyname) values ('$name','$address_line1','$address_line2','$city', '$zipcode','$phoneno','$shop_url','$companyname' )";
 				$qry = pg_query($sql);	
 				if($qry){
 				echo "Address save sucessfully";
 				}
 				else {
-				echo "ERROR  123";
+				echo "ERROR";
 				}
 			}
 		}
