@@ -67,8 +67,8 @@ $('.page_list li a').click(function(){
 					resp=$.trim(resp);
 					if(resp!=''){
 						//location.href = 'hiddenpage.php';
-						var access_token_val = $('.access_key',resp).html();
-						var ship_logo = $('.ship_logo',resp).html();
+						var access_token_val = $('.access_key',resp).text();
+						var ship_logo = $('.ship_logo',resp).text();
 						 $('.access_token_val').val(access_token_val);
 						 if(ship_logo !=''){
 						 ship_logo = '/images/'+ship_logo;
