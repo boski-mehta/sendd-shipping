@@ -44,6 +44,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 <div class="content">
 
 <input type="hidden" class="access_token_val" value="">
+<input type="hidden" class="ship_logo_path" value="">
 <?php include 'login-form.php';?>
 <div class="error_msg" style="display:none"><p>Please login to Your Sendd Shipping account First</p></div>
 	<div class="orderform" style="display:none">
@@ -66,9 +67,15 @@ $('.page_list li a').click(function(){
 					resp=$.trim(resp);
 					if(resp!=''){
 						//location.href = 'hiddenpage.php';
-						$('.access_token_val').val(resp);
+						var access_token_val = $('.access_key',resp);
+						var ship_logo = $('.ship_logo',resp);
+						 $('.access_token_val').val(access_token_val);
+						 if(ship_logo !=''){
+						 ship_logo = '/images/'+ship_logo;
+						$('.ship_logo_path').val(ship_logo);
+						}
 						var access_key ='Token '+$('body .access_token_val').val();
-						//alert(access_key);
+						alert(ship_logo +" "+access_token_val);
 						 $('.content').children().hide();
 						$('.orderform').show();		
 					}else{
@@ -256,7 +263,8 @@ $('.page_list li a').click(function(){
 	
 	$('body').on('click', 'a.Create_order', function(e) {
 	 var access_key ='Token '+$('body .access_token_val').val();
-	$('.response_msg').remove();
+	 var ship_logo_path =$('body .ship_logo_path').val();
+	 $('.response_msg').remove();
 		$( '<div class="load_outer"> <img src="images/loading3.gif" class="loadimg"></div>' ).insertAfter('.Create_order');
 	var leng = $('.popupcontent_inner .item').length;
 	var i=0;
@@ -463,6 +471,9 @@ $('.page_list li a').click(function(){
 			  'insurance': false,
 			  'process': true,
 			  'notifications':true,
+			  'shipping_label_specification'{
+			  'logo':ship_logo_path
+			  }
 			 };
           
 			request.send(JSON.stringify(body)); 
