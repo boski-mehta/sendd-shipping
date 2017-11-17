@@ -64,9 +64,9 @@ $('.page_list li a').click(function(){
 				$.post('/checklogin.php', {shop_url:shop_url,getaccesstoken:1}, function(resp){
 					console.log("resp="+resp);
 					if(resp!=''){
-						var access_token_val =$($.parseHTML(resp)).filter(".access_key"); 
+						var access_token_val =$($.parseHTML(resp)).filter("#access_key"); 
 						//var access_token_val = $('.access_key',resp).html();
-						var ship_logo = $(resp).find('.ship_logo').html();
+						var ship_logo = $(resp).find('#ship_logo').html();
 						 $('.access_token_val').val(access_token_val);
 						 if(ship_logo !=''){
 						 ship_logo = 'https://my-sendd-shipping.herokuapp.com/images/'+ship_logo;
