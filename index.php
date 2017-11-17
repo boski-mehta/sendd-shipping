@@ -194,7 +194,15 @@ $('.page_list li a').click(function(){
 					var total_weight = $(this).attr('data-total_weight');
 					var quantity_total = $(this).attr('data-quantity_total');
 					var financial_status = $(this).attr('data-financial_status');
-					content ='<div class="item"><div class="item_inner"><h3>Shipping information</h3><input type="hidden" value="'+total_weight+'" data-order_id="'+order_id+'" data-order_name="'+order_name1+'"  data-quantity_total="'+quantity_total+'" data-products_name= "'+products_name+'" data-financial_status="'+financial_status+'" class="total_weight"> <div class="fhalf">'+pickup_address+'</div>';
+					var single_product_title =products_name;
+					if(single_product_title.indexOf(',') > -1){
+					single_product_title ='';
+					var single_product_title_1 = products_name.split(',');
+					$.each(single_product_title_1,function(i){
+					   single_product_title =single_product_title +'<input type="checkbox" name="p_list" value="'+single_product_title_1[i]+'">'+single_product_title[i];
+					});
+					}
+					content ='<div class="item"><div class="item_inner"><h3>Shipping information</h3><input type="hidden" value="'+total_weight+'" data-order_id="'+order_id+'" data-order_name="'+order_name1+'"  data-quantity_total="'+quantity_total+'" data-products_name= "'+products_name+'" data-financial_status="'+financial_status+'" class="total_weight"> <div class="fhalf">'+pickup_address+' <div class="product_list"><h3>select the products to be ship</h3>'+single_product_title+'</div></div>';
 					content = content + '<div class="shalf"><label>Customer Name:</label><input type="text" class="customer_name" value="'+customer_name+'"><br><label>Customer Email:</label><input type="text" class="customer_email" value="'+customer_email+'"><br><label>Customer phone:</label><input type="text" class="customer_phone" value="'+customer_phone+'"><br><label>Customer Address:</label><textarea class="customer_address" value="'+customer_address+'">'+customer_address+'</textarea><label>Total amount pay:</label><input type="text" class="customer_total_price" value="'+customer_total_price+'">';
 					content = content + '<br><label>Payment Type: <p class="payment_method">"'+payment_method+'"</p></label>';
 					content = content + '<br><div class="c_type"><label>Content</label><span><input type="radio" checked value="P" name="content_type" class="content_type">Product</span> <span><input type="radio" value="D" name="content_type" class="content_type">Documents</span></div></div></div>';
@@ -202,6 +210,7 @@ $('.page_list li a').click(function(){
 
 					$('.popupcontent_inner').append(content);
 		            $('body .p_company_name').val($('body .pickup_address option:selected').attr('data-companyname'));
+					
 			});
 					// set the value of company name
 					$('body .pickup_address').change(function(){
