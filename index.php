@@ -307,7 +307,7 @@ $('.page_list li a').click(function(){
 		   var order_name1 = $('.total_weight',this).attr('data-order_name');
 		   //var products_name = $('.total_weight',this).attr('data-products_name');
 		   var products_name='';
-		    $('input[name="p_list"]:checked'.this).each(function() {
+		    $('input[name="p_list"]:checked',this).each(function() {
 				if(products_name = ''){
 				products_name =$(this).val();
 				}
