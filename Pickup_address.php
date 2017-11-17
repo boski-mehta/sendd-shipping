@@ -40,7 +40,7 @@ $("#add_new_address").click(function() {
 			address_id=1;
 		}
 	var form_number = parseInt($('body .formmain').length+1);
-	alert(address_id);
+	//alert(address_id);
 	var planDiv = '<div class="formmain" id="formamin_'+address_id+'"><h3>Pickup Address '+form_number+'</h3><a href="'+address_id+'" class="delete_address">DELETE</a>  <form action="" method="POST" id="form_'+address_id+'"><input type="hidden" name="shop_url" value="<?php echo $shop_url; ?>"><input type="hidden" value="'+address_id+'" name="saveaddress" ><input type="text" placeholder="Company Name" name="companyname" value="" required><input type="text" placeholder="Name" name="username" value="" required><textarea name="address_line1"  required maxlength="60" placeholder="Address 1"></textarea><textarea name="address_line2"  maxlength="60" placeholder="Adrress 2"></textarea><input type="text" name="city" value="" required placeholder="city"><input type="text" name="zipcode" placeholder="Zip Code" value="" required><input type="text" name="phoneno" placeholder="Phone No" value="" required> <input type="button" name="saveaddress1"  id="'+address_id+'" class="savebtn" value="Save Address"></form></div>'; 
 		$("div[class^=addnewaddress]:last").after(planDiv);
 	});
