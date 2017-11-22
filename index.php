@@ -9,7 +9,11 @@ use phpish\shopify;
 //error_reporting(E_ALL);
  //print_r($_SESSION); 
 //ini_set('display_errors', 1);
-
+header('Access-Control-Allow-Origin: *'); 
+    header("Access-Control-Allow-Credentials: true");
+    header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+    header('Access-Control-Max-Age: 1000');
+    header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization');
 if((isset($_REQUEST['shop'])) && (isset($_REQUEST['code'])) && $_REQUEST['shop']!='' && $_REQUEST['code']!='' )
 {
 	$_SESSION['shop']=$_REQUEST['shop'];
@@ -382,7 +386,7 @@ $('.page_list li a').click(function(){
 				if(json['shipments']){
 					var tracking_no= json['shipments'][0]['partner_tracking_detail']['tracking_number'];
 					 var company= json['shipments'][0]['partner_tracking_detail']['company'];
-							$.ajax({
+							/*$.ajax({
 									url: '/trackingcode.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id,
 									success: function(data){
 										console.log(data);
@@ -390,16 +394,16 @@ $('.page_list li a').click(function(){
 										$(this).after('<p style="color:red">Tracking Code Added Successfully!</p>');
 										order_count(); // call order function 
 									}
-								}); 
+								}); */
 						
 					  /* add the tracking code in order note */
-						/*$.ajax({
+						$.ajax({
 							url: '/order_note.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id,
 								success: function(data){
 									console.log(data);
 									
 								}
-						}); */
+						}); 
 					 /* add the tracking code in order note */
 					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_name1+" Message = Successfully Shipped</div>");
 				}
