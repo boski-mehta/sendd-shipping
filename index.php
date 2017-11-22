@@ -390,7 +390,7 @@ $('.page_list li a').click(function(){
 									url: '/trackingcode.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id+'&products_ids='+products_ids,
 									success: function(data){
 										console.log(data);
-										order_count(); // call order function 
+										//order_count(); // call order function 
 									}
 								}); 
 						
