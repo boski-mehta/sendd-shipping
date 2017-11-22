@@ -6,7 +6,8 @@ $access_token=$_REQUEST['access_token'];
  $order_id= $_REQUEST['order_id'];
  $trackingcode= $_REQUEST['trackingcode'];
  $trackingcompany= $_REQUEST['trackingcompany'];
-echo $products_ids= $_REQUEST['products_ids'];
+  $products_ids= $_REQUEST['products_ids'];
+print_r($products_ids);
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 
 
