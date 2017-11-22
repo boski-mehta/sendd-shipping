@@ -11,6 +11,7 @@ $access_token=$_REQUEST['access_token'];
     $products_ids =explode(',',$products_ids);
 foreach($products_ids as $products_id){
     $ids_array['id']=$products_id;
+	$ids_array['quantity']=1;
     }
 //$products_ids = json_encode($products_ids);
 echo "hello";print_r($ids_array);
