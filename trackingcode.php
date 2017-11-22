@@ -8,9 +8,9 @@ $access_token=$_REQUEST['access_token'];
  $trackingcompany= $_REQUEST['trackingcompany'];
   $products_ids= $_REQUEST['products_ids'];
  print_r($products_ids);
-    $products_ids =explode(',',$products_ids,0);
-foreach($products_ids as $products_ids){
-    $ids_array['id']=$products_ids;
+    $products_ids =explode(',',$products_ids);
+foreach($products_ids as $products_id){
+    $ids_array['id']=$products_id;
     }
 //$products_ids = json_encode($products_ids);
 echo "hello";print_r($ids_array);
