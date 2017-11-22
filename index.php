@@ -217,7 +217,7 @@ $('.page_list li a').click(function(){
 					});
 					}
 					else{
-					single_product_title='<p><input type="checkbox" name="p_list" value="'+products_name+'" checked>'+products_name+'</p>';
+					single_product_title='<p><input type="checkbox" name="p_list" value="'+products_name+'" checked data-products_ids="'+single_product_ids_1+'">'+products_name+'</p>';
 					}
 					content ='<div class="item"><div class="item_inner"><h3>Shipping information</h3><input type="hidden" value="'+total_weight+'" data-order_id="'+order_id+'" data-order_name="'+order_name1+'"  data-quantity_total="'+quantity_total+'" data-products_name= "'+products_name+'" data-financial_status="'+financial_status+'" class="total_weight"> <div class="fhalf">'+pickup_address+' <div class="product_list"><h3>select the products to be ship</h3>'+single_product_title+'</div></div>';
 					content = content + '<div class="shalf"><label>Customer Name:</label><input type="text" class="customer_name" value="'+customer_name+'"><br><label>Customer Email:</label><input type="text" class="customer_email" value="'+customer_email+'"><br><label>Customer phone:</label><input type="text" class="customer_phone" value="'+customer_phone+'"><br><label>Customer Address:</label><textarea class="customer_address" value="'+customer_address+'">'+customer_address+'</textarea><label>Total amount pay:</label><input type="text" class="customer_total_price" value="'+customer_total_price+'">';
