@@ -9,11 +9,8 @@ $access_token=$_REQUEST['access_token'];
   $products_ids= $_REQUEST['products_ids'];
 print_r($products_ids);
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
-
-
-$shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try{
-	$arguments	= array( "fulfillment" => array("tracking_number" => $trackingcode,"tracking_company"=> "Custom Tracking Company","tracking_url"=>"http://sendd.co/#/tracking"));
+	$arguments= array( "fulfillment" => array("tracking_number" => $trackingcode,"tracking_company"=> "Custom Tracking Company","tracking_url"=>"http://sendd.co/#/tracking"));
 				
  $orders = $shopify('POST /admin/orders/'.$order_id.'/fulfillments.json',$arguments);
  
