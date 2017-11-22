@@ -189,6 +189,7 @@ $('.page_list li a').click(function(){
 				    var order_id = $(this).val(); 
 					var order_name1 = $(this).parent().next('td').html();
 					var products_name = $(this).attr('data-products_name');
+					var products_ids = $(this).attr('data-products_ids');
 					var customer_email = $(this).attr('data-customer_email');
 					var customer_name = $(this).attr('data-customer_name');
 					var customer_address = $(this).attr("data-fulladdress");
@@ -203,6 +204,7 @@ $('.page_list li a').click(function(){
 					if(single_product_title.indexOf(',') > -1){
 					single_product_title ='';
 					var single_product_title_1 = products_name.split(',');
+					var single_product_ids_1 = products_ids.split(',');
 					var checked='';
 					$.each(single_product_title_1,function(i){
 						if(i == 0){
@@ -211,7 +213,7 @@ $('.page_list li a').click(function(){
 						else{
 							checked=false;
 						}
-					   single_product_title =single_product_title +'<p><input type="checkbox" name="p_list" value="'+single_product_title_1[i]+'" checked="'+checked+'">'+single_product_title_1[i]+'</p>';
+					   single_product_title =single_product_title +'<p><input type="checkbox" name="p_list" value="'+single_product_title_1[i]+'" data-products_ids="'+single_product_ids_1[i]+'" checked="'+checked+'">'+single_product_title_1[i]+'</p>';
 					});
 					}
 					else{
@@ -312,13 +314,15 @@ $('.page_list li a').click(function(){
 		   var order_id = $('.total_weight',this).attr('data-order_id');
 		   var order_name1 = $('.total_weight',this).attr('data-order_name');
 		   //var products_name = $('.total_weight',this).attr('data-products_name');
-		   var products_name='';
+		   var products_name='',products_ids='';
 		    $('input[name="p_list"]:checked',this).each(function() {
 				if(products_name == ''){
 				products_name =$(this).val();
+				products_ids =$(this).attr('data-products_ids');
 				}
 				else{
 				products_name =products_name+','+$(this).val();
+				products_ids =products_ids+','+$(this).attr('data-products_ids');
 				}
 			});
 			alert(products_name);
@@ -382,14 +386,24 @@ $('.page_list li a').click(function(){
 				if(json['shipments']){
 					var tracking_no= json['shipments'][0]['partner_tracking_detail']['tracking_number'];
 					 var company= json['shipments'][0]['partner_tracking_detail']['company'];
+							$.ajax({
+									url: '/trackingcode.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id+'&products_ids='+products_ids,
+									success: function(data){
+										console.log(data);
+										//alert('Tracking Code Added Successfully!');
+										$(this).after('<p style="color:red">Tracking Code Added Successfully!</p>');
+										order_count(); // call order function 
+									}
+								}); 
+						
 					  /* add the tracking code in order note */
-						$.ajax({
+						/*$.ajax({
 							url: '/order_note.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id,
 								success: function(data){
 									console.log(data);
 									
 								}
-						});
+						}); */
 					 /* add the tracking code in order note */
 					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_name1+" Message = Successfully Shipped</div>");
 				}
