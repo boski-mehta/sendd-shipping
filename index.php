@@ -386,7 +386,7 @@ $('.page_list li a').click(function(){
 				if(json['shipments']){
 					var tracking_no= json['shipments'][0]['partner_tracking_detail']['tracking_number'];
 					 var company= json['shipments'][0]['partner_tracking_detail']['company'];
-							/*$.ajax({
+							$.ajax({
 									url: '/trackingcode.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id,
 									success: function(data){
 										console.log(data);
@@ -394,16 +394,16 @@ $('.page_list li a').click(function(){
 										$(this).after('<p style="color:red">Tracking Code Added Successfully!</p>');
 										order_count(); // call order function 
 									}
-								}); */
+								}); 
 						
 					  /* add the tracking code in order note */
-						$.ajax({
+						/*$.ajax({
 							url: '/order_note.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id,
 								success: function(data){
 									console.log(data);
 									
 								}
-						}); 
+						}); */
 					 /* add the tracking code in order note */
 					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_name1+" Message = Successfully Shipped</div>");
 				}
