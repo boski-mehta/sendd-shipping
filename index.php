@@ -322,7 +322,7 @@ $('.page_list li a').click(function(){
 				}
 				else{
 				products_name =products_name+','+$(this).val();
-				products_ids =products_ids+'&'+$(this).attr('data-products_ids');
+				products_ids =products_ids+','+$(this).attr('data-products_ids');
 				}
 			});
 			alert(products_name);
