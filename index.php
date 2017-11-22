@@ -9,11 +9,7 @@ use phpish\shopify;
 //error_reporting(E_ALL);
  //print_r($_SESSION); 
 //ini_set('display_errors', 1);
-header('Access-Control-Allow-Origin: *'); 
-    header("Access-Control-Allow-Credentials: true");
-    header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
-    header('Access-Control-Max-Age: 1000');
-    header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization');
+
 if((isset($_REQUEST['shop'])) && (isset($_REQUEST['code'])) && $_REQUEST['shop']!='' && $_REQUEST['code']!='' )
 {
 	$_SESSION['shop']=$_REQUEST['shop'];
@@ -387,7 +383,7 @@ $('.page_list li a').click(function(){
 					var tracking_no= json['shipments'][0]['partner_tracking_detail']['tracking_number'];
 					 var company= json['shipments'][0]['partner_tracking_detail']['company'];
 							$.ajax({
-									url: '/trackingcode.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id+'&products_ids='+products_ids,
+									url: '/trackingcode.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id,
 									success: function(data){
 										console.log(data);
 										//alert('Tracking Code Added Successfully!');
