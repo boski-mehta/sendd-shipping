@@ -13,6 +13,7 @@ foreach($products_ids as $products_ids){
     $products_ids['id']=$products_ids;
     }
 //$products_ids = json_encode($products_ids);
+echo "hello";print_r($products_ids);
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try{
 	//$arguments= array( "fulfillment" => array("tracking_number" => $trackingcode,"tracking_company"=> "Custom Tracking Company","tracking_url"=>"http://sendd.co/#/tracking"));
