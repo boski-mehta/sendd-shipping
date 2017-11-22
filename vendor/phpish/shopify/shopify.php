@@ -78,6 +78,7 @@
 		{
 			if (!$private_app) $request_headers['X-Shopify-Access-Token'] = $oauth_token;
 			$request_headers['content-type'] = 'application/json; charset=utf-8';
+			$request_headers['content-length'] = 0;
 			$http_client = http\client($base_uri, $request_headers);
 
 			try
