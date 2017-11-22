@@ -82,11 +82,17 @@ try
 						else{
 							$product_titles = $product_titles.','.$line_items['title'];
 						}
+						if($product_ids ==''){
+							$product_ids = $line_items['id'];
+						}
+						else{
+							$product_ids = $product_ids.','.$line_items['id'];
+						}
 						
 					}
 				
 				echo "<tr>";
-				echo '<td><input  type="checkbox" $disabled1 class="select_box" name="order_ids_'.$id.'"  value="'.$id.'"  data-financial_status="'.$financial_status.'" data-total_weight="'.$total_weight.'" data-quantity_total="'.$quantity_total.'" data-customer_total-price="'.$total_price.'" data-customer_email="'.$email.'" data-customer_name="'.$customer_name.'" data-fulladdress="'.$full_address.'" data-gateway="'.$gateway.'" data-customer_phone="'.$customer_phone.'"  data-products_name="'.$product_titles.'"></td>';
+				echo '<td><input  type="checkbox" $disabled1 class="select_box" name="order_ids_'.$id.'"  value="'.$id.'"  data-financial_status="'.$financial_status.'" data-total_weight="'.$total_weight.'" data-quantity_total="'.$quantity_total.'" data-customer_total-price="'.$total_price.'" data-customer_email="'.$email.'" data-customer_name="'.$customer_name.'" data-fulladdress="'.$full_address.'" data-gateway="'.$gateway.'" data-customer_phone="'.$customer_phone.'"  data-products_name="'.$product_titles.'" data-products_ids="'.$product_ids.'"></td>';
 				echo "<td>".$name."</td>";
 				echo "<td>".$created_at."</td>";
 				echo "<td>".$customer_name."</td>";
