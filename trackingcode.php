@@ -22,9 +22,12 @@ try{
 		"tracking_number" => $trackingcode,
 		"tracking_company"=> "Custom Tracking Company",
 		"tracking_url"=>"http://sendd.co/#/tracking",		
-		"line_items" => array(
-				$products_ids
-		),
+		'line_items' =>  array(
+			   		array(
+			   			'id'=>116916715534, 
+                        'quantity'=>1
+			   		)
+			   	)
 	)	
 );
 
