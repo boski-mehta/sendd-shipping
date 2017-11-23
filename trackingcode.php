@@ -10,7 +10,7 @@ $access_token = $_REQUEST['access_token'];
  print_r($products_ids);
     $products_ids =explode(',',$products_ids);
 foreach($products_ids as $products_id){
-    $ids_array['id']=$products_id;
+    $ids_array['variant_id']=255841894414;
 	$ids_array['quantity']=1;
     }
 $products_ids = json_encode($ids_array);
@@ -22,9 +22,9 @@ try{
 		"tracking_number" => $trackingcode,
 		"tracking_company"=> "Custom Tracking Company",
 		"tracking_url"=>"http://sendd.co/#/tracking",		
-		"line_items" => 
+		"line_items" => array(
 				$products_ids
-		
+		),
 	)	
 );
 
