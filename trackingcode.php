@@ -24,9 +24,8 @@ try{
 		"tracking_number" => $trackingcode,
 		"tracking_company"=> "Custom Tracking Company",
 		"tracking_url"=>"http://sendd.co/#/tracking",		
-		"line_items" => array(
-				$ids_array
-		),
+		"line_items" => $ids_array,
+		
 	)	
 ); 
 print_r($arguments);
