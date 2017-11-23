@@ -9,13 +9,13 @@ $trackingcompany= $_REQUEST['trackingcompany'];
 $products_ids= $_REQUEST['products_ids'];
 $products_ids =explode(',',$products_ids);
 $i=0;
-print_r($products_ids);
 foreach($products_ids as $key => $products_id){
-	$ids_array[] = array('id' => $products_id, 'quantity' => '1');
+	$ids_array[] = array('id' => $products_id);
 	$i++;
 }
 echo "hello";
-print_r($ids_array);
+$new_array = array_values($ids_array);
+print_r($new_array);
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try{
   $arguments	= array( 
