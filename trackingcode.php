@@ -13,18 +13,17 @@ foreach($products_ids as $key => $products_id){
 	$ids_array[] = array('id' => $products_id);
 }
 echo "hello";
-$new_lineitems = array( array ( 'id' => 255841894414), array ( 'id' => 255841107982));
+//$new_lineitems = array( array ( 'id' => 255841894414), array ( 'id' => 255841107982));
 
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try{
 	$arguments = array(
 		   'fulfillment' => array(
-		   //'tracking_number' => $trackingcode,
-		   'tracking_number' => 705673212,
+		   'tracking_number' => $trackingcode,
 		   'tracking_company' => 'Custom Tracking Company',
 		   'tracking_url' => 'http://sendd.co/#/tracking',
 		   'notify_customer' => true,
-		   'line_items' =>  $new_lineitems
+		   //'line_items' =>  $ids_array
 		)
 	);
 	$response = $shopify("POST /admin/orders/$order_id/fulfillments.json", $arguments);
@@ -40,4 +39,5 @@ catch (shopify\ApiException $e)
 	print_r($e->getRequest());
 	print_r($e->getResponse());
 }
+
 ?>
