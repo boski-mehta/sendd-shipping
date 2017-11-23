@@ -19,7 +19,8 @@ $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token 
 try{
 	$arguments = array(
 		   'fulfillment' => array(
-		   'tracking_number' => $trackingcode,
+		   //'tracking_number' => $trackingcode,
+		   'tracking_number' => 705673212,
 		   'tracking_company' => 'Custom Tracking Company',
 		   'tracking_url' => 'http://sendd.co/#/tracking',
 		   'notify_customer' => true,
@@ -39,5 +40,4 @@ catch (shopify\ApiException $e)
 	print_r($e->getRequest());
 	print_r($e->getResponse());
 }
-
 ?>
