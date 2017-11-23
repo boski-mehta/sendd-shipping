@@ -13,7 +13,7 @@ foreach($products_ids as $products_id){
     $ids_array['variant_id']=255841894414;
 	$ids_array['quantity']=1;
     }
-$products_ids = json_encode($ids_array);
+//$products_ids = json_encode($ids_array);
 echo "hello";print_r($ids_array);
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try{
@@ -23,7 +23,7 @@ try{
 		"tracking_company"=> "Custom Tracking Company",
 		"tracking_url"=>"http://sendd.co/#/tracking",		
 		"line_items" => array(
-				$products_ids
+				$ids_array
 		),
 	)	
 );
