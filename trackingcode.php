@@ -2,8 +2,8 @@
 
 require __DIR__.'/vendor/autoload.php';
 use phpish\shopify;
-$access_token=$_REQUEST['access_token'];
- $order_id= $_REQUEST['order_id'];
+$access_token = $_REQUEST['access_token'];
+ $order_id = $_REQUEST['order_id'];
  $trackingcode= $_REQUEST['trackingcode'];
  $trackingcompany= $_REQUEST['trackingcompany'];
   $products_ids= $_REQUEST['products_ids'];
@@ -24,11 +24,12 @@ try{
 		"tracking_url"=>"http://sendd.co/#/tracking",		
 		"line_items" => array(
 				$ids_array
-			)
-		)	
-	);			
+		),
+	)	
+);			
  $orders = $shopify('POST /admin/orders/'.$order_id.'/fulfillments.json',$arguments);
- print_r($arguments);
+ 
+	print_r($arguments);
 	print_r($orders);
 }
 catch (shopify\ApiException $e)
