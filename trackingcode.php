@@ -22,16 +22,13 @@ try{
 		"tracking_number" => $trackingcode,
 		"tracking_company"=> "Custom Tracking Company",
 		"tracking_url"=>"http://sendd.co/#/tracking",		
-		'line_items' =>  array(
-			   		array(
-			   			'id'=>116916715534, 
-                        'quantity'=>1
-			   		)
-			   	)
+		"line_items" => 
+				$products_ids
+		
 	)	
 );
 
-   print_r($arguments);
+   print_r($arguments); 
  $orders = $shopify('POST /admin/orders/'.$order_id.'/fulfillments.json',$arguments);
 	print_r($orders);
 }
