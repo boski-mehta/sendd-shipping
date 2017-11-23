@@ -9,9 +9,11 @@ $access_token = $_REQUEST['access_token'];
   $products_ids= $_REQUEST['products_ids'];
  print_r($products_ids);
     $products_ids =explode(',',$products_ids);
+	$i=0;
 foreach($products_ids as $products_id){
-    $ids_array['id']=$products_id;
-	$ids_array['quantity']=1;
+    $ids_array[$i]['id']=$products_id;
+	$ids_array[$i]['quantity']=1;
+	$i++;
     }
 //$products_ids = json_encode($ids_array);
 echo "hello";print_r($ids_array);
