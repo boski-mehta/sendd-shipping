@@ -26,10 +26,10 @@ try{
 				$ids_array
 		),
 	)	
-);			
+);
+ $arguments = json_encode($arguments);	
+   echo '<pre>';print_r($arguments); echo '</pre>';
  $orders = $shopify('POST /admin/orders/'.$order_id.'/fulfillments.json',$arguments);
- 
-	print_r($arguments);
 	print_r($orders);
 }
 catch (shopify\ApiException $e)
