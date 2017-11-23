@@ -10,14 +10,14 @@ $access_token = $_REQUEST['access_token'];
  print_r($products_ids);
     $products_ids =explode(',',$products_ids);
 foreach($products_ids as $products_id){
-    $ids_array['variant_id']=255841894414;
+    $ids_array['id']=$products_id;
 	$ids_array['quantity']=1;
     }
 //$products_ids = json_encode($ids_array);
 echo "hello";print_r($ids_array);
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try{
- $arguments	= array( 
+/*  $arguments	= array( 
 	"fulfillment" => array(
 		"tracking_number" => $trackingcode,
 		"tracking_company"=> "Custom Tracking Company",
@@ -26,9 +26,10 @@ try{
 				$ids_array
 		),
 	)	
-);
+); */
+$arguments	=  ["fulfillment" => ["line_items" => [["id" => 116916715534]]],["tracking_number" => $trackingcode]];
 
-   print_r($arguments); 
+   print_r($arguments);
  $orders = $shopify('POST /admin/orders/'.$order_id.'/fulfillments.json',$arguments);
 	print_r($orders);
 }
