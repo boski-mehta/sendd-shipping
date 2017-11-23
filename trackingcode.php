@@ -10,9 +10,9 @@ $products_ids= $_REQUEST['products_ids'];
 $products_ids =explode(',',$products_ids);
 $i=0;
 print_r($products_ids);
-foreach($products_ids as $products_id){
-    $ids_array[$i]['id']=$products_id;
-	$ids_array[$i]['quantity']=1;
+foreach($products_ids as $key => $products_id){
+	$ids_array[$products_id['id']][] = $products_id;
+	//$ids_array[$products_id['quantity']][] = 1;
 	$i++;
     }
  //$ids_array = json_encode($ids_array);
