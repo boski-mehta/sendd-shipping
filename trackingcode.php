@@ -15,7 +15,7 @@ foreach($products_ids as $key => $products_id){
 }
 echo "hello";
 $new_array = array_values($ids_array);
-print_r($new_array);
+$new_lineitems = array( array ( 'id' => '255841894414'), array ( 'id' => '255841107982'));
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try{
   $arguments	= array( 
@@ -23,7 +23,7 @@ try{
 		"tracking_number" => $trackingcode,
 		"tracking_company"=> "Custom Tracking Company",
 		"tracking_url"=>"http://sendd.co/#/tracking",		
-		"line_items" => $ids_array,
+		"line_items" => $new_lineitems,
 		
 	)	
 ); 
