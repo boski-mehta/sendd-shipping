@@ -19,14 +19,14 @@ foreach($products_ids as $products_id){
 echo "hello";print_r($ids_array);
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try{
-  $arguments	= array( 
-	"fulfillment" => array(
-		"tracking_number" => $trackingcode,
-		"tracking_company"=> "Custom Tracking Company",
-		"tracking_url"=>"http://sendd.co/#/tracking",		
-		"line_items" => $ids_array,
+  $arguments	=  
+	"fulfillment" => [
+	{"tracking_number" => $trackingcode},
+		{"tracking_company"=> ["Custom Tracking Company"},
+		{"tracking_url"=>["http://sendd.co/#/tracking"}	;	
+		{"line_items" => $ids_array},
 		
-	)	
+	]	
 ); 
 print_r($arguments);
  $orders = $shopify('POST /admin/orders/'.$order_id.'/fulfillments.json',$arguments);
