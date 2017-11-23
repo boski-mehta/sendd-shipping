@@ -13,7 +13,7 @@ foreach($products_ids as $key => $products_id){
 	$ids_array[] = array('id' => $products_id);
 }
 echo "hello";
-$new_lineitems = array( array ( 'id' => '255841894414'), array ( 'id' => '255841107982'));
+$new_lineitems = array( array ( 'id' => 255841894414), array ( 'id' => 255841107982));
 
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try{
