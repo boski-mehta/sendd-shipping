@@ -26,7 +26,7 @@ try{
 		   'line_items' =>  $new_lineitems
 		)
 	);
-	$response = $shopify('POST /admin/orders/' . $order_id . '/fulfillments.json', $arguments);
+	$response = $shopify("POST /admin/orders/$order_id/fulfillments.json", $arguments);
 	print_r($arguments);
 	print_r($orders);
 	echo '<br>Response==>';
