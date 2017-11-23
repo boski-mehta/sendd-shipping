@@ -15,7 +15,7 @@ foreach($products_ids as $products_id){
 	$ids_array[$i]['quantity']=1;
 	$i++;
     }
-//$products_ids = json_encode($ids_array);
+ $ids_array = json_encode($ids_array);
 echo "hello";print_r($ids_array);
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try{
