@@ -29,6 +29,8 @@ try{
 	$response = $shopify('POST /admin/orders/' . $order_id . '/fulfillments.json', $arguments);
 	print_r($arguments);
 	print_r($orders);
+	echo '<br>Response==>';
+	print_r($response);
 }
 catch (shopify\ApiException $e)
 {
