@@ -17,7 +17,21 @@ echo "hello";
 
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try{
-	$arguments = array(
+	
+	$arguments ={
+		  "fulfillment":{
+			"tracking_number":$trackingcode,
+			"tracking_company":"Custom Tracking Company",
+			"tracking_url":"http:\/\/sendd.co\/#\/tracking",
+			"notify_customer":true,
+			"line_items": [
+			  {
+				"id": 123027456014
+			  }
+			]
+		  }
+		};
+	/* $arguments = array(
 		   'fulfillment' => array(
 			   'tracking_number' => $trackingcode,
 			   'tracking_company' => 'Custom Tracking Company',
@@ -48,7 +62,7 @@ try{
 					)
 				)
 			)
-		);
+		); */
 	$response = $shopify("POST /admin/orders/$order_id/fulfillments.json", $arguments);
 	print_r($arguments);
 	print_r($orders);
