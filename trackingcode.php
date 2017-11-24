@@ -18,7 +18,7 @@ echo "hello";
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try{
 	
-	$arguments ={
+	/* $arguments ={
 		  "fulfillment":{
 			"tracking_number":$trackingcode,
 			"tracking_company":"Custom Tracking Company",
@@ -30,8 +30,8 @@ try{
 			  }
 			]
 		  }
-		};
-	/* $arguments = array(
+		}; */
+	 $arguments = array(
 		   'fulfillment' => array(
 			   'tracking_number' => $trackingcode,
 			   'tracking_company' => 'Custom Tracking Company',
@@ -40,29 +40,11 @@ try{
 			   //'line_items' =>  $ids_array
 			   "line_items"=> array(
 					array(
-						"fulfillable_quantity"=> 1,
-						"fulfillment_service"=> "manual",
-						"fulfillment_status"=> null,
-						"grams"=> 0,
 						"id"=> 116917731342,
-						"price"=> "15.78",
-						"product_id"=> 47473983502,
-						"quantity"=> 1,
-						"requires_shipping"=> true,
-						"sku"=> "K-H9B",
-						"title"=> "USB Beetle Humidifie - Aroma Diffuser",
-						"variant_id"=> "255842156558",
-						"variant_title"=> "Blue",
-						"vendor"=> 'Jai Shri Ram',
-						"name"=> "USB Beetle Humidifie - Aroma Diffuser - Blue",
-						"shipment_status"=>"in_transit",
-						"variant_inventory_management"=>"shopify",
-						"properties"=> "[ ]",
-						"product_exists"=>true
 					)
 				)
 			)
-		); */
+		); 
 	$response = $shopify("POST /admin/orders/$order_id/fulfillments.json", $arguments);
 	print_r($arguments);
 	print_r($orders);
