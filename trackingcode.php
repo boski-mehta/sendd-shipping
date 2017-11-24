@@ -23,7 +23,7 @@ try{
 		   'tracking_company' => 'Custom Tracking Company',
 		   'tracking_url' => 'http://sendd.co/#/tracking',
 		   'notify_customer' => true,
-		   //'line_items' =>  $ids_array
+		   'line_items' =>  $ids_array
 		)
 	);
 	$response = $shopify("POST /admin/orders/$order_id/fulfillments.json", $arguments);
