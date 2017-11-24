@@ -26,8 +26,8 @@ try{
 		   //'line_items' =>  $ids_array
 		   
 
-"line_items": [
-  {
+"line_items"=> array(
+  array(
     "fulfillable_quantity": 1,
 
     "fulfillment_service": "manual",
@@ -65,9 +65,8 @@ try{
     "properties": "[ ]",
 
     "product_exists": true
-  }
-]
-		)
+  ) )
+	)
 	);
 	$response = $shopify("POST /admin/orders/$order_id/fulfillments.json", $arguments);
 	print_r($arguments);
