@@ -1,33 +1,61 @@
 <?php
 
-$curl = curl_init();
+require __DIR__.'/vendor/autoload.php';
+use phpish\shopify;
+$access_token = $_REQUEST['access_token'];
+$order_id = $_REQUEST['order_id'];
+$trackingcode= $_REQUEST['trackingcode'];
+$trackingcompany= $_REQUEST['trackingcompany'];
+$products_ids= $_REQUEST['products_ids'];
+$products_ids =explode(',',$products_ids);
 
-curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://jai-shri-ram-2.myshopify.com/admin/orders/49735925774/fulfillments.json",
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => "",
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 30,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "POST",
-  CURLOPT_POSTFIELDS => "{\"fulfillment\":{\n\t\"tracking_number\":705673212,\n\t\"tracking_company\":\"Custom Tracking Company\",\n\t\"tracking_url\":\"http:\\/\\/sendd.co\\/#\\/tracking\",\n\t\"notify_customer\":true,\n\t\"line_items\":[\n\t\t{\"id\":123036925966}\n\t\t]\n\t\n}\n}",
-  CURLOPT_HTTPHEADER => array(
-    "cache-control: no-cache",
-    "charset: utf-8",
-    "content-length: 0",
-    "content-type: application/json",
-    "x-shopify-access-token: d0602c4458b74f9f8a9aff98d27d98a8"
-  ),
-));
-
-$response = curl_exec($curl);
-$err = curl_error($curl);
-
-curl_close($curl);
-
-if ($err) {
-  echo "cURL Error #:" . $err;
-} else {
-  echo $response;
+foreach($products_ids as $key => $products_id){
+	$ids_array[] = array('id' => $products_id);
 }
+echo "hello";
+//$new_lineitems = array( array ( 'id' => 255841894414), array ( 'id' => 255841107982));
+
+$shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
+try{
+	
+	/* $arguments ={
+		  "fulfillment":{
+			"tracking_number":$trackingcode,
+			"tracking_company":"Custom Tracking Company",
+			"tracking_url":"http:\/\/sendd.co\/#\/tracking",
+			"notify_customer":true,
+			"line_items": [
+			  {
+				"id": 123027456014
+			  }
+			]
+		  }
+		}; */
+	 $arguments = array(
+		   'fulfillment' => array(
+			   'tracking_number' => 705673212,
+			   'tracking_company' => 'Custom Tracking Company',
+			   'tracking_url' => 'http://sendd.co/#/tracking',
+			   'notify_customer' => true,
+			   //'line_items' =>  $ids_array
+			   /*"line_items"=> array(
+					array(
+						"id"=> 123036893198,
+					)
+				)*/
+			)
+		); 
+		//$arguments = json_encode($arguments);
+		print_r($arguments);
+	$response = $shopify("POST /admin/orders/$order_id/fulfillments.json", $arguments);
+	print_r($response);
+}
+catch (shopify\ApiException $e)
+{
+	# HTTP status code was >= 400 or response contained the key 'errors'
+	echo $e;
+	print_r($e->getRequest());
+	print_r($e->getResponse());
+}
+
 ?>
