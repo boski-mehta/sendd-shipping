@@ -38,11 +38,11 @@ try{
 			   'tracking_url' => 'http://sendd.co/#/tracking',
 			   'notify_customer' => true,
 			   //'line_items' =>  $ids_array
-			   /*"line_items"=> array(
+			   "line_items"=> 
 					array(
 						"id"=> 123036893198,
 					)
-				)*/
+			
 			)
 		); 
 		//$arguments = json_encode($arguments);
