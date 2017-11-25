@@ -31,7 +31,7 @@ try{
 			]
 		  }
 		}; */
-		$line_items=array_push(id,255842189326); 
+		//$line_items = array_push_assoc('id', 255842189326);
 	 $arguments = array(
 		   'fulfillment' => array(
 			   'tracking_number' => 705673212,
@@ -40,7 +40,9 @@ try{
 			   'notify_customer' => true,
 			   //'line_items' =>  $ids_array
 			   "line_items"=> array(
-					$line_items
+					array_values(
+						"id"= 255842189326,
+					)
 				)
 			)
 		); 
