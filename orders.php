@@ -76,19 +76,20 @@ try
 				foreach($line_items as $line_items){
 						$quantity_total=$quantity_total+ $line_items['quantity']; 
 						//Get product names
-						if($product_titles ==''){
-							$product_titles = $line_items['title'];
-						}
-						else{
-							$product_titles = $product_titles.','.$line_items['title'];
-						}
-						if($product_ids ==''){
-							$product_ids = $line_items['id'];
-						}
-						else{
-							$product_ids = $product_ids.','.$line_items['id'];
-						}
-						
+						if($line_items['fulfillment_status']!=='fulfilled'){
+							if($product_titles ==''){
+								$product_titles = $line_items['name'];
+							}
+							else{
+								$product_titles = $product_titles.','.$line_items['name'];
+							}
+							if($product_ids ==''){
+								$product_ids = $line_items['id'];
+							}
+							else{
+								$product_ids = $product_ids.','.$line_items['id'];
+							}
+						}	
 					}
 				if($fulfillment_status == 'partial' || $fulfillment_status == 'Unfulfilled' ){
 					echo "<tr>";
