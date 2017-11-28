@@ -74,23 +74,24 @@ try
 				}
 				$line_items=$singleorder['line_items'];
 				foreach($line_items as $line_items){
-						$quantity_total=$quantity_total+ $line_items['quantity']; 
-						//Get product names
-						if($line_items['fulfillment_status']!= 'fulfilled'){
-							if($product_titles ==''){
-								$product_titles = $line_items['name'];
-							}
-							else{
-								$product_titles = $product_titles.','.$line_items['name'];
-							}
-							if($product_ids ==''){
-								$product_ids = $line_items['id'];
-							}
-							else{
-								$product_ids = $product_ids.','.$line_items['id'];
-							}
-						}	
-					}
+					//Get product names
+					echo $line_items['fulfillment_status'];
+					if($line_items['fulfillment_status']!= 'fulfilled'){
+						$quantity_total=$quantity_total+ $line_items['quantity'];
+						if($product_titles ==''){
+							$product_titles = $line_items['name'];
+						}
+						else{
+							$product_titles = $product_titles.','.$line_items['name'];
+						}
+						if($product_ids ==''){
+							$product_ids = $line_items['id'];
+						}
+						else{
+							$product_ids = $product_ids.','.$line_items['id'];
+						}
+					}	
+				}
 				if($fulfillment_status == 'partial' || $fulfillment_status == 'Unfulfilled' ){
 					echo "<tr>";
 					echo '<td><input  type="checkbox" $disabled1 class="select_box" name="order_ids_'.$id.'"  value="'.$id.'"  data-financial_status="'.$financial_status.'" data-total_weight="'.$total_weight.'" data-quantity_total="'.$quantity_total.'" data-customer_total-price="'.$total_price.'" data-customer_email="'.$email.'" data-customer_name="'.$customer_name.'" data-fulladdress="'.$full_address.'" data-gateway="'.$gateway.'" data-customer_phone="'.$customer_phone.'"  data-products_name="'.$product_titles.'" data-products_ids="'.$product_ids.'"></td>';
