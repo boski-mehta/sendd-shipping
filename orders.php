@@ -90,7 +90,7 @@ try
 						}
 						
 					}
-				
+				if($fulfillment_status == 'partial' || $fulfillment_status == 'Unfulfilled' ){
 					echo "<tr>";
 					echo '<td><input  type="checkbox" $disabled1 class="select_box" name="order_ids_'.$id.'"  value="'.$id.'"  data-financial_status="'.$financial_status.'" data-total_weight="'.$total_weight.'" data-quantity_total="'.$quantity_total.'" data-customer_total-price="'.$total_price.'" data-customer_email="'.$email.'" data-customer_name="'.$customer_name.'" data-fulladdress="'.$full_address.'" data-gateway="'.$gateway.'" data-customer_phone="'.$customer_phone.'"  data-products_name="'.$product_titles.'" data-products_ids="'.$product_ids.'"></td>';
 					echo "<td>".$name."</td>";
@@ -101,7 +101,7 @@ try
 					echo "<td>".$total_price."</td>";
 					echo "<td>".$note_value."<a href='javascript:void(0);' data-id='$id' data-tracking_code='$note_value' class='put_track'>Apply Tracking Code</a>"."</td>";
 					echo "</tr>";
-					
+				}	
 			}
 			 echo '</tbody>';
 			  echo '</table>';
