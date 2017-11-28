@@ -76,7 +76,7 @@ try
 				foreach($line_items as $line_items){
 						$quantity_total=$quantity_total+ $line_items['quantity']; 
 						//Get product names
-						if($line_items['fulfillment_status']!=='fulfilled'){
+						if($line_items['fulfillment_status']!= 'fulfilled'){
 							if($product_titles ==''){
 								$product_titles = $line_items['name'];
 							}
