@@ -48,6 +48,7 @@ try{
 			)
 		); 
 		//$arguments = json_encode($arguments);
+	$arguments =preg_replace('/\%5B\d+\%5D/', '%5B%5D', http_build_query($arguments));
 		print_r($arguments);
 	$response = $shopify("POST /admin/orders/$order_id/fulfillments.json", $arguments);
 	print_r($response);
