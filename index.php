@@ -210,6 +210,9 @@ $('.page_list li a').click(function(){
 						if(i == 0){
 							checked="checked=true";
 						}
+						else{
+							checked="";
+						}
 						
 					   single_product_title =single_product_title +'<p><input type="checkbox" name="p_list" value="'+single_product_title_1[i]+'" data-products_ids="'+single_product_ids_1[i]+'" '+checked+'>'+single_product_title_1[i]+'</p>';
 					});
