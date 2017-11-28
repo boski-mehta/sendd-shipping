@@ -8,7 +8,7 @@ $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token 
 try
 {
 	      
-			$orders = $shopify('GET /admin/orders.json', array('limit'=>$_REQUEST['limit'],'page'=>$_REQUEST['page_id'],'fulfillment_status'=>'unshipped','order'=>'created_at asc'));
+			$orders = $shopify('GET /admin/orders.json', array('limit'=>$_REQUEST['limit'],'page'=>$_REQUEST['page_id'],'fulfillment_status'=>'unshipped&partial','order'=>'created_at asc'));
 			if($orders){
 			require __DIR__.'/popupcontent.php'; //popup content
 			echo '<table class="table-hover expanded sennd-order-table">';
