@@ -372,7 +372,7 @@ $('.page_list li a').click(function(){
 			/* live api */
 			
 			/* test api */
-			request.open('POST', 'https://api-staging.sendd.co/core/api/v3/order/');
+			request.open('POST', 'https://api-staging.sendd.co/core/api/v1/order/');
 			request.setRequestHeader('Content-Type', 'application/json');
 			request.setRequestHeader('Authorization', access_key);
 			/* test api */
