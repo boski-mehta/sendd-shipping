@@ -281,8 +281,7 @@ $('.page_list li a').click(function(){
 		   var p_zipcode = $('.pickup_address option:selected',this).attr('data-pickupzip');
 		   var p_city = $('.pickup_address option:selected',this).attr('data-pickupcity');
 		   var seller_gstin = $('.pickup_address option:selected',this).attr('data-seller_gstin');
-		   alert(seller_gstin);
-		  //var pickup_address = $('.pickup_address option:selected',this).attr('data-pickupusername');
+		   //var pickup_address = $('.pickup_address option:selected',this).attr('data-pickupusername');
 		  //var pickup_address = $('.pickup_address option:selected',this).text();
 		   //var pickup_address1 = $('.pickup_address option:selected',this).val();
 		  
@@ -328,7 +327,7 @@ $('.page_list li a').click(function(){
 				products_ids =products_ids+','+$(this).attr('data-products_ids');
 				}
 			});
-			alert(products_name);
+			//alert(products_name);
 		   // set the description limit to 100
 		     if (products_name.length > 100){
 					products_name=products_name.substring(0,100);
@@ -463,7 +462,7 @@ $('.page_list li a').click(function(){
 				'city':p_city,
 				'pincode': p_zipcode,
 				'country': 'IN',
-				'seller_gstin': seller_gstin
+				'seller_gstin': "24AJHPT5338E1Z5"
 				
 			  },
 			  'delivery_detail': {
