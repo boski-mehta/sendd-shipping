@@ -281,6 +281,7 @@ $('.page_list li a').click(function(){
 		   var p_zipcode = $('.pickup_address option:selected',this).attr('data-pickupzip');
 		   var p_city = $('.pickup_address option:selected',this).attr('data-pickupcity');
 		   var seller_gstin = $('.pickup_address option:selected',this).attr('data-seller_gstin');
+		   alert(seller_gstin);
 		  //var pickup_address = $('.pickup_address option:selected',this).attr('data-pickupusername');
 		  //var pickup_address = $('.pickup_address option:selected',this).text();
 		   //var pickup_address1 = $('.pickup_address option:selected',this).val();
