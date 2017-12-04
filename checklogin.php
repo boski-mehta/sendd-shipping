@@ -46,19 +46,20 @@ require __DIR__.'/connection.php'; //DB connectivity
 			 $city=trim($_REQUEST['city']);
 			 $zipcode=trim($_REQUEST['zipcode']);
 			 $phoneno=trim($_REQUEST['phoneno']);
+			 $seller_gstin=trim($_REQUEST['seller_gstin']);
 			 $shop_url=trim($_REQUEST['shop_url']);
 			//echo "SELECT id FROM pickup_address WHERE shop_url ='{$shop_url}' and id={$address_id}";
 			 $pickup_address2 = pg_query($dbconn4, "SELECT id FROM pickup_address WHERE shop_url ='{$shop_url}' and id={$address_id}");
 			//echo pg_num_rows($pickup_address2);
 			if(pg_num_rows($pickup_address2)){
 				//echo "UPDATE pickup_address SET name ='{$name}' , address_line1='{$address_line1}', address_line2='{$address_line2}', city='{$city}', zipcode='{$zipcode}', phoneno='{$phoneno}',companyname='{$companyname}' WHERE shop_url='{$shop_url}' and id={$address_id}";
-		           $sql =   pg_query($dbconn4, "UPDATE pickup_address SET name ='{$name}' , address_line1='{$address_line1}', address_line2='{$address_line2}', city='{$city}', zipcode='{$zipcode}', phoneno='{$phoneno}',companyname='{$companyname}' WHERE shop_url='{$shop_url}' and id={$address_id}");
+		           $sql =   pg_query($dbconn4, "UPDATE pickup_address SET name ='{$name}' , address_line1='{$address_line1}', address_line2='{$address_line2}', city='{$city}', zipcode='{$zipcode}', phoneno='{$phoneno}',seller_gstin='{$seller_gstin}',companyname='{$companyname}' WHERE shop_url='{$shop_url}' and id={$address_id}");
 				echo "Address update  sucessfully";
 				
 				
 			}
 			else{
-			 $sql = "insert into pickup_address (name,address_line1,address_line2,city ,zipcode,phoneno,shop_url,companyname) values ('$name','$address_line1','$address_line2','$city', '$zipcode','$phoneno','$shop_url','$companyname' )";
+			 $sql = "insert into pickup_address (name,address_line1,address_line2,city ,zipcode,phoneno,shop_url,companyname,seller_gstin) values ('$name','$address_line1','$address_line2','$city', '$zipcode','$phoneno','$shop_url','$companyname','$seller_gstin' )";
 				$qry = pg_query($sql);	
 				if($qry){
 				echo "Address save sucessfully";
