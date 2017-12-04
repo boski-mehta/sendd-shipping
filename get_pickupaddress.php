@@ -8,7 +8,7 @@ if((isset($_REQUEST['pickupaddres'])) || $_REQUEST['pickupaddres']!=''){
 			 echo '<h5>Pickup Address*</h5><label>Pickup Company Name:</label><input type="text" class="p_company_name" value="">';
 			 echo '<label>Pickup address:</label><select name="pickup_address" class="pickup_address">';
 			while ($row = pg_fetch_assoc($pickup_address)) {
-				echo '<option data-companyname="'.trim($row['companyname']).'" data-pickupusername="'.trim($row['name']).'" data-pickupadd1="'.trim($row['address_line1']).'" data-pickupadd2="'.trim($row['address_line2']).'" data-pickupcity="'.trim($row['city']).'" data-pickupzip="'.trim($row['zipcode']).'" data-pickupphone="'.trim($row['phoneno']).'" value="'.trim($row['address_line1']).'">'.trim($row['name']).','.trim($row['address_line1']).','.trim($row['city']).','.trim($row['zipcode']).','.trim($row['phoneno']).'</option>';
+				echo '<option data-companyname="'.trim($row['companyname']).'" data-pickupusername="'.trim($row['name']).'" data-pickupadd1="'.trim($row['address_line1']).'" data-pickupadd2="'.trim($row['address_line2']).'" data-pickupcity="'.trim($row['city']).'" data-pickupzip="'.trim($row['zipcode']).'" data-pickupphone="'.trim($row['phoneno']).'" data-seller_gstin="'.trim($row['seller_gstin']).'" value="'.trim($row['address_line1']).'">'.trim($row['name']).','.trim($row['address_line1']).','.trim($row['city']).','.trim($row['zipcode']).','.trim($row['phoneno']).','.trim($row['seller_gstin']).'</option>';
 			
 	   }
 	    echo "</select>";
