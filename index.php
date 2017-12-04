@@ -280,6 +280,7 @@ $('.page_list li a').click(function(){
 		   var p_phone = $('.pickup_address option:selected',this).attr('data-pickupphone');
 		   var p_zipcode = $('.pickup_address option:selected',this).attr('data-pickupzip');
 		   var p_city = $('.pickup_address option:selected',this).attr('data-pickupcity');
+		   var seller_gstin = $('.pickup_address option:selected',this).attr('data-seller_gstin');
 		  //var pickup_address = $('.pickup_address option:selected',this).attr('data-pickupusername');
 		  //var pickup_address = $('.pickup_address option:selected',this).text();
 		   //var pickup_address1 = $('.pickup_address option:selected',this).val();
@@ -460,7 +461,8 @@ $('.page_list li a').click(function(){
 				'address_2': address2,
 				'city':p_city,
 				'pincode': p_zipcode,
-				 'country': 'IN',
+				'country': 'IN',
+				'seller_gstin': seller_gstin
 				
 			  },
 			  'delivery_detail': {
