@@ -372,7 +372,7 @@ $('.page_list li a').click(function(){
 			/* live api */
 			
 			/* test api */
-			request.open('POST', 'https://api-staging.sendd.co/core/api/v1/order/');
+			request.open('POST', 'https://api-staging.sendd.co/core/api/v3/order/');
 			request.setRequestHeader('Content-Type', 'application/json');
 			request.setRequestHeader('Authorization', access_key);
 			/* test api */
@@ -462,7 +462,7 @@ $('.page_list li a').click(function(){
 				'city':p_city,
 				'pincode': p_zipcode,
 				'country': 'IN',
-				'seller_gstin': "24AJHPT5338E1Z5"
+				'seller_gstin': seller_gstin
 				
 			  },
 			  'delivery_detail': {
