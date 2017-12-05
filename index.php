@@ -359,8 +359,7 @@ $('.page_list li a').click(function(){
 			else{
 			payment_method = false;
 			}
-			console.log("c_address1="+ c_address1);
-			console.log("c_address2="+ c_address2);
+			alert(payment_method);
 			/* customer detail*/
 	            
 		       	var request = new XMLHttpRequest();
