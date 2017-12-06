@@ -87,10 +87,10 @@ try
 					if($line_items['fulfillment_status']!= 'fulfilled'){
 							if($product_quantity_total ==''){
 								//$product_quantity_total = ($line_items['quantity'] * $line_items['price'])+($extra_per_product);
-								$product_quantity_total = $line_items['price'];
+								$product_quantity_total = $line_items['price'] * $line_items['quantity'];
 							}
 							else{
-								echo $product_quantity_total=$product_quantity_total.','.$line_items['price'];
+								echo $product_quantity_total = $product_quantity_total.','.($line_items['price'] * $line_items['quantity']);
 							}
 							if($product_titles ==''){
 								$product_titles = $line_items['name'];
