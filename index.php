@@ -217,9 +217,11 @@ $('.page_list li a').click(function(){
 						
 					   single_product_title =single_product_title +'<p><input type="checkbox" name="p_list" value="'+single_product_title_1[i]+'" data-products_ids="'+single_product_ids_1[i]+'" data-product_quantity_total="'+product_quantity_total_1[i]+'" '+checked+'>'+single_product_title_1[i]+'</p>';
 					});
+					customer_total_price = product_quantity_total[0];
 					}
 					else{
 					single_product_title='<p><input type="checkbox" name="p_list" value="'+products_name+'" checked data-products_ids="'+products_ids+'" data-product_quantity_total="'+product_quantity_total+'">'+products_name+'</p>';
+					customer_total_price = product_quantity_total;
 					}
 					content ='<div class="item"><div class="item_inner"><h3>Shipping information</h3><input type="hidden" value="'+total_weight+'" data-order_id="'+order_id+'" data-order_name="'+order_name1+'"  data-quantity_total="'+quantity_total+'" data-products_name= "'+products_name+'" data-financial_status="'+financial_status+'" class="total_weight"> <div class="fhalf">'+pickup_address+' <div class="product_list"><h3>select the products to be ship</h3>'+single_product_title+'</div></div>';
 					content = content + '<div class="shalf"><label>Customer Name:</label><input type="text" class="customer_name" value="'+customer_name+'"><br><label>Customer Email:</label><input type="text" class="customer_email" value="'+customer_email+'"><br><label>Customer phone:</label><input type="text" class="customer_phone" value="'+customer_phone+'"><br><label>Customer Address:</label><textarea class="customer_address" value="'+customer_address+'">'+customer_address+'</textarea><label>Total amount pay:</label><input type="text" class="customer_total_price" value="'+customer_total_price+'">';
@@ -232,8 +234,11 @@ $('.page_list li a').click(function(){
 					
 			});
 			         $('input[name=p_list]').change(function (item) {
-					    var product_price =$(this).attr('data-product_quantity_total'); 
-						$(this).parents('.item_inner').find('.customer_total_price').val(product_price);
+					  var product_price = 0;
+					 $('input[name="p_list"]:checked',this).each(function() {
+					  product_price = product_price + parseInt($(this).attr('data-product_quantity_total')); 
+					 });
+					   $(this).parents('.item_inner').find('.customer_total_price').val(product_price);
 					 });
 					// set the value of company name
 					$('body .pickup_address').change(function(){
