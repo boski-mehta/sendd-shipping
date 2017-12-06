@@ -78,7 +78,7 @@ try
 				}
 				$line_items=$singleorder['line_items'];
 				$count=0;
-				foreach($line_items as $line_items){
+				foreach($line_items as $line_items123){
 					$count=$count+1;
 				}
 				echo $extra_per_product = $extra_price / $count;
