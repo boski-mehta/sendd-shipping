@@ -81,7 +81,7 @@ try
 				foreach($line_items as $line_items){
 					$count++;
 				}
-				$extra_per_product = $extra_price/$count;
+				//$extra_per_product = $extra_price/$count;
 				foreach($line_items as $line_items){
 					//Get product names
 					if($line_items['fulfillment_status']!= 'fulfilled'){
