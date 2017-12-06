@@ -264,9 +264,8 @@ $('.page_list li a').click(function(){
 	}); 
 	$('body').on('change','.slick-active input[name=p_list]',function (item) {
 					alert(1);
-					var _this = $(this+':checked');
 					  var product_price = 0;
-					 $.each(_this,function() {
+					 $('body .slick-active input[name="p_list"]:checked').each(function() {
 					  product_price = product_price + parseFloat($(this).attr('data-product_quantity_total')); 
 					 });
 					   $(this).parents('.item_inner').find('.customer_total_price').val(product_price);
