@@ -86,7 +86,7 @@ try
 					//Get product names
 					if($line_items['fulfillment_status']!= 'fulfilled'){
 							$item_total= $line_items['price'] * $line_items['quantity'];
-							echo $item_total = $item_total + $extra_per_product
+							echo $item_total = $item_total + $extra_per_product;
 							if($product_quantity_total ==''){
 								$product_quantity_total = $item_total;
 							}
