@@ -86,10 +86,11 @@ try
 					//Get product names
 					if($line_items['fulfillment_status']!= 'fulfilled'){
 							if($product_quantity_total ==''){
-								$product_quantity_total = ($line_items['quantity'] * $line_items['price'])+($extra_per_product);
+								//$product_quantity_total = ($line_items['quantity'] * $line_items['price'])+($extra_per_product);
+								$product_quantity_total = $line_items['price'];
 							}
 							else{
-								echo $product_quantity_total=$product_quantity_total.','.($line_items['quantity'] * $line_items['price'] )+ ($extra_per_product);
+								echo $product_quantity_total=$product_quantity_total.','.$line_items['price'];
 							}
 							if($product_titles ==''){
 								$product_titles = $line_items['name'];
