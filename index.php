@@ -217,7 +217,7 @@ $('.page_list li a').click(function(){
 						
 					   single_product_title =single_product_title +'<p><input type="checkbox" name="p_list" value="'+single_product_title_1[i]+'" data-products_ids="'+single_product_ids_1[i]+'" data-product_quantity_total="'+product_quantity_total_1[i]+'" '+checked+'>'+single_product_title_1[i]+'</p>';
 					});
-					customer_total_price = product_quantity_total[0];
+					customer_total_price = product_quantity_total_1[0];
 					}
 					else{
 					single_product_title='<p><input type="checkbox" name="p_list" value="'+products_name+'" checked data-products_ids="'+products_ids+'" data-product_quantity_total="'+product_quantity_total+'">'+products_name+'</p>';
