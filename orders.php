@@ -85,12 +85,13 @@ try
 				foreach($line_items as $line_items){
 					//Get product names
 					if($line_items['fulfillment_status']!= 'fulfilled'){
+							$item_total= $line_items['price'] * $line_items['quantity'];
+							echo $item_total = $item_total + $extra_per_product
 							if($product_quantity_total ==''){
-								//$product_quantity_total = ($line_items['quantity'] * $line_items['price'])+($extra_per_product);
-								$product_quantity_total = ($line_items['price'] * $line_items['quantity']) + $extra_per_product;
+								$product_quantity_total = $item_total;
 							}
 							else{
-								echo $product_quantity_total = $product_quantity_total.','.($line_items['price'] * $line_items['quantity']) + $extra_per_product;
+							    $product_quantity_total = $product_quantity_total.','.$item_total;
 							}
 							if($product_titles ==''){
 								$product_titles = $line_items['name'];
