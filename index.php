@@ -233,14 +233,7 @@ $('.page_list li a').click(function(){
 		            $('body .p_company_name').val($('body .pickup_address option:selected').attr('data-companyname'));
 					
 			});
-			         $('.slick-active input[name=p_list]').change(function (item) {
-					  var product_price = 0;
-					 $('body .slick-active input[name="p_list"]:checked').each(function() {
-					  product_price = product_price + parseFloat($(this).attr('data-product_quantity_total')); 
-					 });
-					   $(this).parents('.item_inner').find('.customer_total_price').val(product_price);
-					 });
-					// set the value of company name
+			// set the value of company name
 					$('body .pickup_address').change(function(){
 						 $('body .p_company_name').val($(this).find(':selected').attr('data-companyname'));
 					});
@@ -269,7 +262,13 @@ $('.page_list li a').click(function(){
 		}
 	
 	}); 
-	
+	$('body .slick-active input[name=p_list]').change(function (item) {
+					  var product_price = 0;
+					 $('body .slick-active input[name="p_list"]:checked').each(function() {
+					  product_price = product_price + parseFloat($(this).attr('data-product_quantity_total')); 
+					 });
+					   $(this).parents('.item_inner').find('.customer_total_price').val(product_price);
+					 });
 
 	
 	$('body').on('click', 'a.Create_order', function(e) {
