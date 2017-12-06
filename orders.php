@@ -78,9 +78,9 @@ try
 				}
 				$line_items=$singleorder['line_items'];
 				$count=0;
-				foreach($line_items as $line_items){
+				/*foreach($line_items as $line_items){
 					$count++;
-				}
+				}*/
 				//$extra_per_product = $extra_price/$count;
 				foreach($line_items as $line_items){
 					//Get product names
