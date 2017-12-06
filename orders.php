@@ -81,15 +81,15 @@ try
 				foreach($line_items as $line_items123){
 					$count=$count+1;
 				}
-				echo $extra_per_product = $extra_price / $count;
+				$extra_per_product = $extra_price / $count;
 				foreach($line_items as $line_items){
 					//Get product names
 					if($line_items['fulfillment_status']!= 'fulfilled'){
 							if($product_quantity_total ==''){
-								$product_quantity_total = $line_items['quantity'] * $line_items['price']+$extra_per_product;
+								$product_quantity_total = ($line_items['quantity'] * $line_items['price'])+($extra_per_product);
 							}
 							else{
-								$product_quantity_total=$product_quantity_total.','.$line_items['quantity'] * $line_items['price'] + $extra_per_product;
+								echo $product_quantity_total=$product_quantity_total.','.($line_items['quantity'] * $line_items['price'] )+ ($extra_per_product);
 							}
 							if($product_titles ==''){
 								$product_titles = $line_items['name'];
