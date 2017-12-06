@@ -86,10 +86,10 @@ try
 					//Get product names
 					if($line_items['fulfillment_status']!= 'fulfilled'){
 							if($product_quantity_total ==''){
-								$product_quantity_total=$line_items['quantity']*$line_items['price']+$extra_per_product;
+								//$product_quantity_total = $line_items['quantity']*$line_items['price']+$extra_per_product;
 							}
 							else{
-								$product_quantity_total=$product_quantity_total.','. $line_items['quantity']*$line_items['price']+$extra_per_product;
+								//$product_quantity_total=$product_quantity_total.','. $line_items['quantity']*$line_items['price']+$extra_per_product;
 							}
 							if($product_titles ==''){
 								$product_titles = $line_items['name'];
@@ -105,7 +105,6 @@ try
 								$product_ids = $product_ids.','.$line_items['id'];
 							}
 					}
-					$count++;
 				}
 				
 				
