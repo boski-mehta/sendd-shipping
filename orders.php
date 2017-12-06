@@ -77,10 +77,10 @@ try
 					$disabled1="";
 				}
 				$line_items=$singleorder['line_items'];
-				$count=0;
-				foreach($line_items as $line_items){
+				$count=4;
+				/*foreach($line_items as $line_items){
 					$count++;
-				}
+				}*/
 				echo $extra_per_product = $extra_price / $count;
 				foreach($line_items as $line_items){
 					//Get product names
