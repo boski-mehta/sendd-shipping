@@ -235,7 +235,7 @@ $('.page_list li a').click(function(){
 			});
 			         $('input[name=p_list]').change(function (item) {
 					  var product_price = 0;
-					 $('input[name="p_list"]:checked',this).each(function() {
+					 $('body input[name="p_list"]:checked').each(function() {
 					  product_price = product_price + parseInt($(this).attr('data-product_quantity_total')); 
 					 });
 					   $(this).parents('.item_inner').find('.customer_total_price').val(product_price);
