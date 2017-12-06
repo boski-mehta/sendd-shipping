@@ -234,7 +234,7 @@ $('.page_list li a').click(function(){
 			         $('input[name=p_list]').change(function (item) {
 					    var product_price =$(this).attr('data-product_quantity_total'); 
 						$(this).parents('.item_inner').find('.customer_total_price').val(product_price);
-					 }
+					 });
 					// set the value of company name
 					$('body .pickup_address').change(function(){
 						 $('body .p_company_name').val($(this).find(':selected').attr('data-companyname'));
