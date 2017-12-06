@@ -456,7 +456,8 @@ $('.page_list li a').click(function(){
 					'weight':0.5,
 					'fragile': false,
 					collectable_value,
-					'description': products_name
+					'description': products_name,
+					'currency': 'USD'
 					
 					
 				  }
@@ -471,7 +472,7 @@ $('.page_list li a').click(function(){
 				'address_2': address2,
 				'city':p_city,
 				'pincode': p_zipcode,
-				'country': 'IN',
+				'country': 'US',
 				'seller_gstin': seller_gstin
 				
 			  },
@@ -494,6 +495,7 @@ $('.page_list li a').click(function(){
 			  'insurance': false,
 			  'process': true,
 			  'notifications':true,
+			  "international": true,
 			  'shipping_label_specification':{
 			  'logo':ship_logo_path
 			  }
