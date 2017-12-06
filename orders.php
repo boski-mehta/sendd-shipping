@@ -41,6 +41,7 @@ try
 				$quantity_total=0;
 				$product_titles='';
 				$product_ids ='';
+				$quantity_total ='';
 				 $id =$singleorder['id'];
 				 $name =$singleorder['name'];
 				 $created_at =$singleorder['created_at'];
@@ -48,6 +49,8 @@ try
 				 $gateway =$singleorder['gateway'];
 				 $financial_status=$singleorder['financial_status'];
 				 $total_price=$singleorder['total_price']; 
+				 $subtotal_price=$singleorder['subtotal_price']; 
+				 $extra_price = $total_price - $subtotal_price;
 				 $email=$singleorder['email'];
 				 $address=$singleorder['shipping_address']['address1'];
 				 $address2=$singleorder['shipping_address']['address2'];
@@ -74,10 +77,20 @@ try
 					$disabled1="";
 				}
 				$line_items=$singleorder['line_items'];
+				$count=0;
+				foreach($line_items as $line_items){
+					$count++;
+				}
+				$extra_per_product = $extra_price/$count;
 				foreach($line_items as $line_items){
 					//Get product names
 					if($line_items['fulfillment_status']!= 'fulfilled'){
-							$quantity_total=$quantity_total+ $line_items['quantity'];
+							if($quantity_total ==''){
+								$quantity_total=$line_items['quantity']*$line_items['price']+$extra_per_product;
+							}
+							else{
+								$quantity_total=$quantity_total.','. $line_items['quantity']*$line_items['price']+$extra_per_product;
+							}
 							if($product_titles ==''){
 								$product_titles = $line_items['name'];
 							}
@@ -92,10 +105,13 @@ try
 								$product_ids = $product_ids.','.$line_items['id'];
 							}
 					}
+					$count++;
 				}
+				
+				
 				if($fulfillment_status == 'partial' || $fulfillment_status == 'Unfulfilled' ){
 					echo "<tr>";
-					echo '<td><input  type="checkbox" $disabled1 class="select_box" name="order_ids_'.$id.'"  value="'.$id.'"  data-financial_status="'.$financial_status.'" data-total_weight="'.$total_weight.'" data-quantity_total="'.$quantity_total.'" data-customer_total-price="'.$total_price.'" data-customer_email="'.$email.'" data-customer_name="'.$customer_name.'" data-fulladdress="'.$full_address.'" data-gateway="'.$gateway.'" data-customer_phone="'.$customer_phone.'"  data-products_name="'.$product_titles.'" data-products_ids="'.$product_ids.'"></td>';
+					echo '<td><input  type="checkbox" $disabled1 class="select_box" name="order_ids_'.$id.'"  value="'.$id.'"  data-financial_status="'.$financial_status.'" data-total_weight="'.$total_weight.'" data-quantity_total="'.$quantity_total.'" data-customer_total-price="'.$total_price.'" data-customer_email="'.$email.'" data-customer_name="'.$customer_name.'" data-fulladdress="'.$full_address.'" data-gateway="'.$gateway.'" data-customer_phone="'.$customer_phone.'"  data-products_name="'.$product_titles.'" data-products_ids="'.$product_ids.'" data-quantity_total="'.$quantity_total.'"></td>';
 					echo "<td>".$name."</td>";
 					echo "<td>".$created_at."</td>";
 					echo "<td>".$customer_name."</td>";
