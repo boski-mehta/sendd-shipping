@@ -12,6 +12,7 @@ $pickup_address = pg_query($dbconn4, "SELECT * FROM pickup_address WHERE shop_ur
 			<a href="<?php echo trim($row['id'])?>" class="delete_address">DELETE</a>
   <form action="" method="POST" id="form_<?php echo trim($row['id'])?>">
     <input name="saveaddress" type="hidden" value="<?php echo trim($row['id'])?>"><input type="hidden" name="shop_url" value="<?php echo $shop_url; ?>">
+	<input type="text" name="Vendorid" placeholder="Vendor id" value="<?php echo trim($row['Vendorid'])?>" required>
 	<input type="text" name="companyname" placeholder="Company Name" value="<?php echo trim($row['companyname'])?>" required>
     <input type="text" name="username" placeholder="Name" value="<?php echo trim($row['name'])?>" required>
     <textarea  name="address_line1" placeholder="Adrress 1" required maxlength="60"><?php echo trim($row['address_line1']);?></textarea>
@@ -42,7 +43,7 @@ $("#add_new_address").click(function() {
 		}
 	var form_number = parseInt($('body .formmain').length+1);
 	//alert(address_id);
-	var planDiv = '<div class="formmain" id="formamin_'+address_id+'"><h3>Pickup Address '+form_number+'</h3><a href="'+address_id+'" class="delete_address">DELETE</a>  <form action="" method="POST" id="form_'+address_id+'"><input type="hidden" name="shop_url" value="<?php echo $shop_url; ?>"><input type="hidden" value="'+address_id+'" name="saveaddress" ><input type="text" placeholder="Company Name" name="companyname" value="" required><input type="text" placeholder="Name" name="username" value="" required><textarea name="address_line1"  required maxlength="60" placeholder="Address 1"></textarea><textarea name="address_line2"  maxlength="60" placeholder="Adrress 2"></textarea><input type="text" name="city" value="" required placeholder="city"><input type="text" name="zipcode" placeholder="Zip Code" value="" required><input type="text" name="phoneno" placeholder="Phone No" value="" required><input type="text" name="seller_gstin" placeholder="seller gstin" value="" required> <input type="button" name="saveaddress1"  id="'+address_id+'" class="savebtn" value="Save Address"></form></div>'; 
+	var planDiv = '<div class="formmain" id="formamin_'+address_id+'"><h3>Pickup Address '+form_number+'</h3><a href="'+address_id+'" class="delete_address">DELETE</a>  <form action="" method="POST" id="form_'+address_id+'"><input type="hidden" name="shop_url" value="<?php echo $shop_url; ?>"><input type="hidden" value="'+address_id+'" name="saveaddress" ><input type="text" placeholder="Vendor id" name="Vendorid" value="" required><input type="text" placeholder="Company Name" name="companyname" value="" required><input type="text" placeholder="Name" name="username" value="" required><textarea name="address_line1"  required maxlength="60" placeholder="Address 1"></textarea><textarea name="address_line2"  maxlength="60" placeholder="Adrress 2"></textarea><input type="text" name="city" value="" required placeholder="city"><input type="text" name="zipcode" placeholder="Zip Code" value="" required><input type="text" name="phoneno" placeholder="Phone No" value="" required><input type="text" name="seller_gstin" placeholder="seller gstin" value="" required> <input type="button" name="saveaddress1"  id="'+address_id+'" class="savebtn" value="Save Address"></form></div>'; 
 		$("div[class^=addnewaddress]:last").after(planDiv);
 	});
 
@@ -50,7 +51,7 @@ $("#add_new_address").click(function() {
 	   e.preventDefault();
 	   var get_id = $(this).attr('id');
 	   
-		if(($("body #form_"+get_id+" input[name=username]").val()!='') && ($("body #form_"+get_id+" input[name=address_line1]").val()!='')&& ($("body #form_"+get_id+" input[name=companyname]").val()!='')&& ($("body #form_"+get_id+ "input[name=city]").val()!='')&& ($("body #form_"+get_id+" input[name=zipcode]").val()!='')&& ($("body #form_"+get_id+" input[name=phoneno]").val()!='')&& ($("body #form_"+get_id+" input[name=seller_gstin]").val()!='')){
+		if(($("body #form_"+get_id+" input[name=username]").val()!='') && ($("body #form_"+get_id+" input[name=address_line1]").val()!='')&& ($("body #form_"+get_id+" input[name=companyname]").val()!='')&& ($("body #form_"+get_id+ "input[name=city]").val()!='')&& ($("body #form_"+get_id+" input[name=zipcode]").val()!='')&& ($("body #form_"+get_id+" input[name=phoneno]").val()!='')&& ($("body #form_"+get_id+" input[name=seller_gstin]").val()!='') && ($("body #form_"+get_id+" input[name=Vendorid]").val()!='') ){
 		$(this).val('Adding...');
 		var clickedbtn= $(this);
 		var formdata = $('body #form_'+get_id).serialize();
