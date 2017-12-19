@@ -42,6 +42,9 @@ try
 				$product_titles='';
 				$product_quantity_total ='';
 				$product_ids ='';
+				$tax_title ='';
+				$tax_price ='';
+				$tax_rate ='';
 				 $id =$singleorder['id'];
 				 $name =$singleorder['name'];
 				 $created_at =$singleorder['created_at'];
@@ -106,13 +109,14 @@ try
 							else{
 								$product_ids = $product_ids.','.$line_items['id'];
 							}
+							
 					}
 					
 				}
 				
 				if($fulfillment_status == 'partial' || $fulfillment_status == 'Unfulfilled' ){
 					echo "<tr>";
-					echo '<td><input  type="checkbox" $disabled1 class="select_box" name="order_ids_'.$id.'"  value="'.$id.'"  data-financial_status="'.$financial_status.'" data-total_weight="'.$total_weight.'" data-quantity_total="'.$quantity_total.'" data-customer_total-price="'.$total_price.'" data-customer_email="'.$email.'" data-customer_name="'.$customer_name.'" data-fulladdress="'.$full_address.'" data-gateway="'.$gateway.'" data-customer_phone="'.$customer_phone.'"  data-products_name="'.$product_titles.'" data-products_ids="'.$product_ids.'" data-product_quantity_total="'.$product_quantity_total.'"></td>';
+					echo '<td><input  type="checkbox" $disabled1 class="select_box" name="order_ids_'.$id.'"  value="'.$id.'"  data-financial_status="'.$financial_status.'" data-total_weight="'.$total_weight.'" data-quantity_total="'.$quantity_total.'" data-customer_total-price="'.$total_price.'" data-customer_email="'.$email.'" data-customer_name="'.$customer_name.'" data-fulladdress="'.$full_address.'" data-gateway="'.$gateway.'" data-customer_phone="'.$customer_phone.'"  data-products_name="'.$product_titles.'" data-products_ids="'.$product_ids.'" data-product_quantity_total="'.$product_quantity_total.'" data-tax-title="'.$tax_title.'" data-tax-price="'.$tax_price.'" data-tax-rate="'.$tax_rate.'"></td>';
 					echo "<td>".$name."</td>";
 					echo "<td>".$created_at."</td>";
 					echo "<td>".$customer_name."</td>";
