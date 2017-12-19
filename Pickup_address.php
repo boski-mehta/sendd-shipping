@@ -21,7 +21,7 @@ $pickup_address = pg_query($dbconn4, "SELECT * FROM pickup_address WHERE shop_ur
     <input value="<?php echo trim($row['zipcode']);?>" type="text" name="zipcode" placeholder="Zip Code" required>
     <input value="<?php echo trim($row['phoneno']);?>" type="text" name="phoneno" placeholder="Phone no" required>
 	 <input value="<?php echo trim($row['seller_gstin']);?>" type="text" name="seller_gstin" placeholder="seller gstin" required>
-	 <input value="<?php echo trim($row['email']);?>" type="text" name="p_email" placeholder="seller gstin" required>
+	 <input value="<?php echo trim($row['email']);?>" type="text" name="p_email" placeholder="Email" required>
     <input value="Save Address" type="button" id="<?php echo trim($row['id'])?>" class="savebtn" name="saveaddress1" value="Save Address">
 			</form></div>
 		<?php
