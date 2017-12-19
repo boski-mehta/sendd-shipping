@@ -41,7 +41,7 @@ require __DIR__.'/connection.php'; //DB connectivity
 			$address_id=trim($_REQUEST['saveaddress']);
 			 $name=trim($_REQUEST['username']);
 			 $Vendorid=trim($_REQUEST['Vendorid']);
-			 $p_email=trim($_REQUEST['email']);
+			 $p_email=trim($_REQUEST['p_email']);
 			 $companyname=trim($_REQUEST['companyname']);
 			 $address_line1=trim($_REQUEST['address_line1']);
 			 $address_line2=trim($_REQUEST['address_line2']);
