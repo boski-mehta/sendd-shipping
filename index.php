@@ -337,7 +337,9 @@ $('.page_list li a').click(function(){
 		   var order_name1 = $('.total_weight',this).attr('data-order_name');
 		   //var products_name = $('.total_weight',this).attr('data-products_name');
 		   var products_name='',products_ids='',product_quantity_total='';
-		    $('input[name="p_list"]:checked',this).each(function() {
+		   var products_name_array = new Array() , products_id_array = new Array(),products_quantity_array = new Array() ,products_sku_array = new Array(), products_tax_title_array = new Array() ,products_tax_rate_array = new Array() ,
+		   products_tax_price_array = new Array() ,products_price_array = new Array();
+		    $('input[name="p_list"]:checked',this).each(function(index) {
 				if(products_name == ''){
 				products_name =$(this).val();
 				products_ids =$(this).attr('data-products_ids');
@@ -348,7 +350,11 @@ $('.page_list li a').click(function(){
 				products_ids =products_ids+','+$(this).attr('data-products_ids');
 				product_quantity_total =product_quantity_total+','+$(this).attr('data-product_quantity_total');
 				}
+				products_name_array[index]['description'] =$(this).val();
+				products_id_array[index]['product_id'] =$(this).attr('data-products_ids');
+				products_price_array[index] =$(this).attr('data-product_quantity_total');products_sku_array[index] =$(this).attr('data-product_sku');products_tax_title_array[index] =$(this).attr('data-tax_title1');products_tax_rate_array[index] =$(this).attr('data-tax_rate1');products_tax_price_array[index] =$(this).attr('data-tax_pricel');
 			});
+			console.log(products_name_array);
 			//alert(products_name);
 		   // set the description limit to 100
 		     if (products_name.length > 100){
