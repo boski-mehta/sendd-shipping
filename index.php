@@ -263,12 +263,12 @@ $('.page_list li a').click(function(){
 	
 	}); 
 	$('body').on('change','.slick-active input[name=p_list]',function (item) {
-					  var product_price = 0;
-					 $('body .slick-active input[name="p_list"]:checked').each(function() {
-					  product_price = product_price + parseFloat($(this).attr('data-product_quantity_total')); 
-					 });
-					   $(this).parents('.item_inner').find('.customer_total_price').val(product_price);
-					 });
+	  var product_price = 0;
+	 $('body .slick-active input[name="p_list"]:checked').each(function() {
+	  product_price = product_price + parseFloat($(this).attr('data-product_quantity_total')); 
+	 });
+	   $(this).parents('.item_inner').find('.customer_total_price').val(product_price);
+	 });
 
 	
 	$('body').on('click', 'a.Create_order', function(e) {
@@ -276,8 +276,8 @@ $('.page_list li a').click(function(){
 	 var ship_logo_path =$('body .ship_logo_path').val();
 	 $('.response_msg').remove();
 		$( '<div class="load_outer"> <img src="images/loading3.gif" class="loadimg"></div>' ).insertAfter('.Create_order');
-	var leng = $('.popupcontent_inner .item').length;
-	var i=0;
+		var leng = $('.popupcontent_inner .item').length;
+		var i=0;
 	$('.popupcontent_inner .item').each(function(index){
 		if(index < leng-1){
 			
@@ -290,6 +290,9 @@ $('.page_list li a').click(function(){
 		   var p_zipcode = $('.pickup_address option:selected',this).attr('data-pickupzip');
 		   var p_city = $('.pickup_address option:selected',this).attr('data-pickupcity');
 		   var seller_gstin = $('.pickup_address option:selected',this).attr('data-seller_gstin');
+		   var Vendorid = $('.pickup_address option:selected',this).attr('data-Vendorid');
+		   var p_email = $('.pickup_address option:selected',this).attr('data-p_email');
+		   
 		   //var pickup_address = $('.pickup_address option:selected',this).attr('data-pickupusername');
 		  //var pickup_address = $('.pickup_address option:selected',this).text();
 		   //var pickup_address1 = $('.pickup_address option:selected',this).val();
@@ -457,13 +460,13 @@ $('.page_list li a').click(function(){
 					'fragile': false,
 					collectable_value,
 					'description': products_name,
-					'currency': 'USD'
 					
 					
 				  }
 				}
 			  ],
 			  'pickup_detail': {
+			  "customer_reference_id":Vendorid,
 			   'address_type': 'O',
 				'company_name': p_company_name,
 				'contact_person': p_contact_person,
@@ -472,7 +475,7 @@ $('.page_list li a').click(function(){
 				'address_2': address2,
 				'city':p_city,
 				'pincode': p_zipcode,
-				'country': 'US',
+				'email': p_email,
 				'seller_gstin': seller_gstin
 				
 			  },
