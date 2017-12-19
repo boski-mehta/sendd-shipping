@@ -12,7 +12,7 @@ $pickup_address = pg_query($dbconn4, "SELECT * FROM pickup_address WHERE shop_ur
 			<a href="<?php echo trim($row['id'])?>" class="delete_address">DELETE</a>
   <form action="" method="POST" id="form_<?php echo trim($row['id'])?>">
     <input name="saveaddress" type="hidden" value="<?php echo trim($row['id'])?>"><input type="hidden" name="shop_url" value="<?php echo $shop_url; ?>">
-	<input type="text" name="Vendorid" placeholder="Vendor id" value="<?php echo trim($row['Vendorid'])?>" required>
+	<input type="text" name="Vendorid" placeholder="Vendor id" value="<?php echo trim($row['vendorid'])?>" required>
 	<input type="text" name="companyname" placeholder="Company Name" value="<?php echo trim($row['companyname'])?>" required>
     <input type="text" name="username" placeholder="Name" value="<?php echo trim($row['name'])?>" required>
     <textarea  name="address_line1" placeholder="Adrress 1" required maxlength="60"><?php echo trim($row['address_line1']);?></textarea>
