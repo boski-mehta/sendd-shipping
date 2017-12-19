@@ -109,7 +109,7 @@ try
 							else{
 								$product_ids = $product_ids.','.$line_items['id'];
 							}
-							foreach($tax_lines as $tax_lines){
+							foreach($line_items['tax_lines'] as $tax_lines){
 								if($tax_title ==''){
 								$tax_title = $tax_lines['title'];
 								$tax_rate =$tax_lines['rate'];
