@@ -109,7 +109,19 @@ try
 							else{
 								$product_ids = $product_ids.','.$line_items['id'];
 							}
-							
+							foreach($tax_lines1 as $tax_lines){
+								if($tax_title ==''){
+								$tax_title = $tax_lines1['title'];
+								$tax_rate =$tax_lines1['rate'];
+								$tax_price =$tax_lines1['price'];
+							}
+							else{
+								$tax_title = $tax_title.','.$tax_lines1['title'];
+								$tax_rate = $tax_title.','.$tax_lines1['rate'];
+								$tax_price = $tax_title.','.$tax_lines1['price'];
+							}
+								
+							}
 					}
 					
 				}
