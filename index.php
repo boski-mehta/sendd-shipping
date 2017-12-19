@@ -189,6 +189,10 @@ $('.page_list li a').click(function(){
 				    var order_id = $(this).val(); 
 					var order_name1 = $(this).parent().next('td').html();
 					var products_name = $(this).attr('data-products_name');
+					var products_sku = $(this).attr('data-sku');
+					var tax_title = $(this).attr('data-tax-title');
+					var tax_price = $(this).attr('data-tax-price');
+					var tax_rate = $(this).attr('data-tax-rate');
 					var products_ids = $(this).attr('data-products_ids');
 					var product_quantity_total = $(this).attr('data-product_quantity_total');
 					var customer_email = $(this).attr('data-customer_email');
@@ -206,6 +210,10 @@ $('.page_list li a').click(function(){
 					var single_product_title_1 = products_name.split(',');
 					var single_product_ids_1 = products_ids.split(',');
 					var product_quantity_total_1 = product_quantity_total.split(',');
+					var product_sku1 = product_sku.split(',');
+					var tax_title1 = tax_title.split(',');
+					var tax_price1 = tax_price.split(',');
+					var tax_rate1 = tax_rate.split(',');
 					var checked='';
 					$.each(single_product_title_1,function(i){
 						if(i == 0){
@@ -215,12 +223,12 @@ $('.page_list li a').click(function(){
 							checked="";
 						}
 						
-					   single_product_title =single_product_title +'<p><input type="checkbox" name="p_list" value="'+single_product_title_1[i]+'" data-products_ids="'+single_product_ids_1[i]+'" data-product_quantity_total="'+product_quantity_total_1[i]+'" '+checked+'>'+single_product_title_1[i]+'</p>';
+					   single_product_title =single_product_title +'<p><input type="checkbox" name="p_list" value="'+single_product_title_1[i]+'" data-products_ids="'+single_product_ids_1[i]+'" data-product_quantity_total="'+product_quantity_total_1[i]+'" data-product_sku="'+product_sku1[i]+'" data-tax_title1="'+tax_title1[i]+'" data-tax_price1="'+tax_price1[i]+'" data-tax_rate1="'+tax_rate1[i]+'"  '+checked+'>'+single_product_title_1[i]+'</p>';
 					});
 					customer_total_price = product_quantity_total_1[0];
 					}
 					else{
-					single_product_title='<p><input type="checkbox" name="p_list" value="'+products_name+'" checked data-products_ids="'+products_ids+'" data-product_quantity_total="'+product_quantity_total+'">'+products_name+'</p>';
+					single_product_title='<p><input type="checkbox" name="p_list" value="'+products_name+'" checked data-products_ids="'+products_ids+'" data-product_quantity_total="'+product_quantity_total+'" data-product_sku="'+product_sku+'" data-tax_title1="'+tax_title+'" data-tax_price1="'+tax_price+'" data-tax_rate1="'+tax_rate+'">'+products_name+'</p>';
 					customer_total_price = product_quantity_total;
 					}
 					content ='<div class="item"><div class="item_inner"><h3>Shipping information</h3><input type="hidden" value="'+total_weight+'" data-order_id="'+order_id+'" data-order_name="'+order_name1+'"  data-quantity_total="'+quantity_total+'" data-products_name= "'+products_name+'" data-financial_status="'+financial_status+'" class="total_weight"> <div class="fhalf">'+pickup_address+' <div class="product_list"><h3>select the products to be ship</h3>'+single_product_title+'</div></div>';
