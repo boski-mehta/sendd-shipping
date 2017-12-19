@@ -189,7 +189,7 @@ $('.page_list li a').click(function(){
 				    var order_id = $(this).val(); 
 					var order_name1 = $(this).parent().next('td').html();
 					var products_name = $(this).attr('data-products_name');
-					var products_sku = $(this).attr('data-sku');
+					var product_sku = $(this).attr('data-sku');
 					var tax_title = $(this).attr('data-tax-title');
 					var tax_price = $(this).attr('data-tax-price');
 					var tax_rate = $(this).attr('data-tax-rate');
