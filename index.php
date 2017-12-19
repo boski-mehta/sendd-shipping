@@ -500,8 +500,7 @@ $('.page_list li a').click(function(){
 			  'logo':ship_logo_path
 			  }
 			 };
-              $('body').append(JSON.stringify(body));
-			request.send(JSON.stringify(body)); 
+              		request.send(JSON.stringify(body)); 
 			i++;
 		}
 		
