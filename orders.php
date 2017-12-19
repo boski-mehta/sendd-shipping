@@ -110,15 +110,15 @@ try
 								$product_ids = $product_ids.','.$line_items['id'];
 							}
 							foreach($line_items['tax_lines'] as $tax_lines){
-								if($tax_title ==''){
+								if($tax_title =='' || $tax_rate == '' || $tax_price == ''){
 								$tax_title = $tax_lines['title'];
 								$tax_rate =$tax_lines['rate'];
 								$tax_price =$tax_lines['price'];
 							}
 							else{
 								$tax_title = $tax_title.','.$tax_lines['title'];
-								$tax_rate = $tax_title.','.$tax_lines['rate'];
-								$tax_price = $tax_title.','.$tax_lines['price'];
+								$tax_rate = $tax_rate.','.$tax_lines['rate'];
+								$tax_price = $tax_price.','.$tax_lines['price'];
 							}
 								
 							}
