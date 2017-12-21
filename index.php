@@ -337,7 +337,7 @@ $('.page_list li a').click(function(){
 		   var order_name1 = $('.total_weight',this).attr('data-order_name');
 		   //var products_name = $('.total_weight',this).attr('data-products_name');
 		   var products_name='',products_ids='',product_quantity_total='',product_sku='';
-		   var add_info_items={};
+		   add_info_items=[];
 		    $('input[name="p_list"]:checked',this).each(function(index) {
 				if(products_name == ''){
 				products_name =$(this).val();
@@ -351,10 +351,16 @@ $('.page_list li a').click(function(){
 				product_quantity_total =product_quantity_total+','+$(this).attr('data-product_quantity_total');
 				product_sku = product_sku+','+$(this).attr('data-product_sku');
 				}
-				add_info_items[index] = {'description':$(this).val(),'product_id':$(this).attr('data-products_ids'),'value':$(this).attr('data-product_quantity_total'),'sku':$(this).attr('data-product_sku'),'gst_tax_name':$(this).attr('data-tax_title1'),'gst_tax_rate_sgstn':$(this).attr('data-tax_rate1'),'gst_tax_total': $(this).attr('data-tax_pricel')};
+				item = {};
+				item['description']=$(this).val();
+				item['product_id']=$(this).attr('data-products_ids');
+				item['value']=$(this).attr('data-product_quantity_total');
+				item['sku']=$(this).attr('data-product_sku');
+				item['gst_tax_name']=$(this).attr('data-tax_title1');
+				item['gst_tax_rate_sgstn']=$(this).attr('data-tax_rate1');
+				item['gst_tax_total']=$(this).attr('data-tax_price1');
+				add_info_items.push(item);
 			});
-			console.log(products_name_array);
-			//alert(products_name);
 		   // set the description limit to 100
 		     if (products_name.length > 100){
 					products_name=products_name.substring(0,100);
@@ -515,9 +521,7 @@ $('.page_list li a').click(function(){
 			  'shipping_label_specification':{
 			  'logo':ship_logo_path
 			  },
-			  "add_info_items": [
-				add_info_items
-			],
+			  "add_info_items": JSON.stringify(add_info_items),
 			 };
               		request.send(JSON.stringify(body)); 
 			i++;
