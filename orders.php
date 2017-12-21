@@ -105,10 +105,10 @@ try
 							}
 						
 							if($product_ids ==''){
-								$product_ids = $line_items['id'];
+								$product_ids = $line_items['product_id'];
 							}
 							else{
-								$product_ids = $product_ids.','.$line_items['id'];
+								$product_ids = $product_ids.','.$line_items['product_id'];
 							}
 							if($sku_no ==''){
 								$sku_no = $line_items['sku'];
