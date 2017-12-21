@@ -357,11 +357,12 @@ $('.page_list li a').click(function(){
 				var product_image='';
 					$.ajax({
 						url: '/get_product_info.php?access_token='+access_token+'&shop='+shop+'&product_id='+product_id,
+						async:false,
 						success: function(data){
-						alert(data);
 							product_image = data;
 						}
 					});
+					alert(product_image);
 				item = {};
 				item['description']=$(this).val();
 				item['product_id']=$(this).attr('data-products_ids');
