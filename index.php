@@ -403,7 +403,7 @@ $('.page_list li a').click(function(){
 			else{
 			payment_method = false;
 			}
-			alert(payment_method);
+			 //alert(payment_method);
 			/* customer detail*/
 	            
 		       	var request = new XMLHttpRequest();
@@ -431,13 +431,13 @@ $('.page_list li a').click(function(){
 				if(json['shipments']){
 					var tracking_no= json['shipments'][0]['partner_tracking_detail']['tracking_number'];
 					 var company= json['shipments'][0]['partner_tracking_detail']['company'];
-							$.ajax({
+							/*$.ajax({
 									url: '/trackingcode.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id+'&products_ids='+products_ids,
 									success: function(data){
 										console.log(data);
 										//order_count(); // call order function 
 									}
-								}); 
+								}); */
 						
 					  /* add the tracking code in order note */
 						/*$.ajax({
@@ -534,7 +534,8 @@ $('.page_list li a').click(function(){
 			  },
 			  "add_info_items": JSON.stringify(add_info_items),
 			 };
-              		request.send(JSON.stringify(body)); 
+			 
+              	request.send(JSON.stringify(body)); 
 			i++;
 		}
 		
