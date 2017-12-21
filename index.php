@@ -351,9 +351,20 @@ $('.page_list li a').click(function(){
 				product_quantity_total =product_quantity_total+','+$(this).attr('data-product_quantity_total');
 				product_sku = product_sku+','+$(this).attr('data-product_sku');
 				}
+				var access_token='<?php echo $access_token ?>';
+				var shop='<?php echo $_REQUEST['shop'] ?>';
+				var product_id =$(this).attr('data-products_ids');
+				var product_image='';
+					$.ajax({
+						url: '/get_product_info.php?access_token='+access_token+'&shop='+shop+'&product_id='+product_id,
+						success: function(data){
+							product_image = data;
+						}
+					});
 				item = {};
 				item['description']=$(this).val();
 				item['product_id']=$(this).attr('data-products_ids');
+				item['image_url']=product_image;
 				item['value']=$(this).attr('data-product_quantity_total');
 				item['sku']=$(this).attr('data-product_sku');
 				item['gst_tax_name']=$(this).attr('data-tax_title1');
