@@ -535,7 +535,7 @@ $('.page_list li a').click(function(){
 			  'shipping_label_specification':{
 			  'logo':ship_logo_path
 			  },
-			  "add_info_items": JSON.stringify(add_info_items),
+			  "add_info_items": add_info_items,
 			 };
 			 
               	request.send(JSON.stringify(body)); 
