@@ -358,6 +358,7 @@ $('.page_list li a').click(function(){
 					$.ajax({
 						url: '/get_product_info.php?access_token='+access_token+'&shop='+shop+'&product_id='+product_id,
 						success: function(data){
+						alert(data);
 							product_image = data;
 						}
 					});
@@ -372,6 +373,7 @@ $('.page_list li a').click(function(){
 				item['gst_tax_total']=$(this).attr('data-tax_price1');
 				add_info_items.push(item);
 			});
+			console.log(add_info_items);
 		   // set the description limit to 100
 		     if (products_name.length > 100){
 					products_name=products_name.substring(0,100);
