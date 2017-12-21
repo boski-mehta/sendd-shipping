@@ -7,10 +7,10 @@ $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token 
 try
 {
 	      
-			$product = $shopify('GET /admin/products/{$product_id}.json');
+			$product = $shopify('GET /admin/products/'.$product_id.'.json');
 			if($product){
-        echo $product['image']['src'];
-      }
+        		echo $product['image']['src'];
+      			}
       }
 catch (shopify\ApiException $e)
 {
